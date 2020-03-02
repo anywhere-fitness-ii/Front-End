@@ -20,7 +20,7 @@ const Select = styled.select`
 `
 
 
-const RegisterForm = (props) => {
+const RegistrationForm = (props) => {
   const [ inputValues, setInputValues ] = useState({
     name: '',
     email: '',
@@ -65,4 +65,5 @@ const RegisterForm = (props) => {
   )
 }
 
-export default RegisterForm;
+
+export default RegistrationForm;

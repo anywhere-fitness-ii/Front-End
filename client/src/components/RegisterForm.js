@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
+//Styles to be moved to a separate file
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -20,19 +21,46 @@ const Select = styled.select`
 
 
 const RegisterForm = (props) => {
-  
+  const [ inputValues, setInputValues ] = useState({
+    name: '',
+    email: '',
+    password: '',
+    imageUrl: '',
+    userId: ''
+  })
+
+  const handleChange = (e) => {
+    setInputValues({...inputValues, [e.target.name]: e.target.value})
+    console.log(inputValues)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInputValues({
+      name: '',
+      email: '',
+      password: '',
+      imageUrl: '',
+      userId: ''
+    })
+  }
 
   return (
-    <FormContainer>
-      <Input type="text" name="name" placeholder="Name"/>
-      <Input type="text" name="email" placeholder="Email"/>
-      <Input type="text" name="password" placeholder="Password"/>
-      <Input type="text" name="imageUrl" placeholder="Profile Image URL"/>
-      <Select>
+    <FormContainer onSubmit={handleSubmit}>
+      <Input onChange={handleChange} type="text" name="name" placeholder="Name" value={inputValues.name}/>
+
+      <Input onChange={handleChange} type="text" name="email" placeholder="Email" value={inputValues.email}/>
+
+      <Input onChange={handleChange} type="text" name="password" placeholder="Password" value={inputValues.password}/>
+
+      <Input onChange={handleChange} type="text" name="imageUrl" placeholder="Profile Image URL" value={inputValues.imageUrl}/>
+
+      <Select name="userId" onChange={handleChange}>
         <option>Instructor</option>
         <option>User</option>
       </Select>
-      <button>Register</button>
+
+      <button type="submit">Register</button>
     </FormContainer>
   )
 }

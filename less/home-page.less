@@ -1,0 +1,188 @@
+// Home Content
+
+.home {
+
+  .intro {
+
+    h2 {
+      padding: 15px;
+    }
+
+    p {
+      padding:0 15px;
+    }
+  
+  }
+
+  .space-images {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    .blast {
+      @media @mobile {
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+      }
+    }
+
+    .sky, .launch {
+      @media @mobile {
+        display: none;
+      }
+    }
+
+    img {
+      width: 28%;
+      margin: 20px 2.5%;
+      border-radius: 20px;
+      height: 100%;
+    }
+  }
+
+  .visit-planets {
+    padding: 15px;
+
+    h3 {
+      margin-top: 11px;
+    }
+
+    p {
+      margin-top: 13px;
+    }
+  }
+
+  .walk {
+    margin-top: 60px;
+    border-top: 1px solid @darkclay;
+    padding: 50px 60px;
+    display: flex;
+    justify-content: center;
+
+    @media @mobile {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 3px;
+      width: 90vw;
+      margin: 0 auto;
+    }
+
+    .walk-text {
+      width: 50%;
+
+      @media @mobile {
+        margin-top: 2px;
+        margin-bottom: 1px;
+        width: 100%;
+        text-align: justify;
+      }
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 26px;
+        @media @mobile {
+          margin-bottom: 2.2rem;
+        }
+  
+      }
+
+      .btn {
+        .customButton();
+          @media @mobile {
+            width: 100vw;
+            height: 6vh;
+          }
+
+      }
+    }
+
+    .walk-img {
+      width: 46%;
+      margin-left: 4%;
+      @media @mobile {
+        order: -1;
+        margin-left: 0;
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 10px;
+      }
+    
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+  }
+}// home
+
+.workingOutImg {
+  min-width: 100%;
+  border-radius: 7px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.topSection {
+  background-color: black;
+  margin-bottom: 1.5vh;
+}
+.sectionTwo {
+  display: flex;
+  justify-content: space-around;
+
+  img {
+    margin-left: 10%;
+    max-width: 20vw;
+  }
+  ol {
+    margin-left: 7%;
+    width: 70vw;
+    color: @lightgrey;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    counter-reset: li;
+    font: 15px @mainFont;
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 black;
+
+    li:before {
+      
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        left: -1.3em;
+        top: 50%;
+        margin-top: -1.3em;
+        background: @darkclay;
+        height: 2em;
+        width: 2em;
+        line-height: 2em;
+        border: .3em solid @lightgrey;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 2em;
+        transition: all .3s ease-out;
+      
+    }
+    li {
+      width: 70%;
+      position: relative;
+      display: block;
+      padding: .4em .4em .4em 2em;
+      margin: .5em auto;
+      background: @darkclay;
+      color: @lightgrey;
+      text-decoration: none;
+      border-radius: .3em;
+      transition: all .3s ease-out;
+    }
+  }
+}

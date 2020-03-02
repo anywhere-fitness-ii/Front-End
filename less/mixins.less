@@ -1,0 +1,21 @@
+// Mixins Here
+
+.customButton(@bg-color: @bgColor, @width: 92px, @font-color: @textColor) {
+    display: table-cell;
+    background-color: @bg-color;
+    margin: 0 10px 20px;
+    cursor: pointer;
+    width: @width;
+    height: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    color: @font-color;
+
+    &:hover {
+        background-color: @font-color;
+        color: @bg-color;
+    }
+    text-align: center;
+    vertical-align: middle;
+}

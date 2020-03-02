@@ -1,0 +1,50 @@
+// Navigation code here
+
+#navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    h1 {
+      background-color: inherit;
+      width: 45%;
+        font-size: 2rem;
+        margin: 1.5% auto 2% 4%;
+        font-family: @mainFont;
+        color: @textColor;
+      @media (max-width: 500px) {
+          
+        }
+  }
+  
+    nav {
+      background-color: inherit;
+
+      width: 55%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-family: @secondFont;
+      @media @mobile {
+          width: 78%;
+          margin-bottom: 0.75rem;
+      }
+  
+      a {
+        text-decoration: none;
+        background-color: inherit;
+
+        color: @lightgrey;
+        font-weight: bold;
+        @media @mobile {
+          font-size: 1.5rem;
+      }
+  
+      }
+    }
+  
+  }

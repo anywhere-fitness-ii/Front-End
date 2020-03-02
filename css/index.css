@@ -1,0 +1,375 @@
+/* theme colors */
+/* color assignment */
+/* font assignment */
+/* media queries */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  background-color: black;
+  font-family: 'Montserrat';
+}
+#navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  margin-bottom: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+#navBar h1 {
+  background-color: inherit;
+  width: 45%;
+  font-size: 2rem;
+  margin: 1.5% auto 2% 4%;
+  font-family: 'Montserrat';
+  color: #C4C4C4;
+}
+#navBar nav {
+  background-color: inherit;
+  width: 55%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Quicksand';
+}
+@media (max-width: 500px) {
+  #navBar nav {
+    width: 78%;
+    margin-bottom: 0.75rem;
+  }
+}
+#navBar nav a {
+  text-decoration: none;
+  background-color: inherit;
+  color: #C4C4C4;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  #navBar nav a {
+    font-size: 1.5rem;
+  }
+}
+footer {
+  color: #C4C4C4;
+  background-color: #282626;
+  padding: 20px 0;
+  border: 1px double black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p {
+  background-color: transparent;
+  font-family: 'Quicksand';
+}
+.home .intro h2 {
+  padding: 15px;
+}
+.home .intro p {
+  padding: 0 15px;
+}
+.home .space-images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (max-width: 500px) {
+  .home .space-images .blast {
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .home .space-images .sky,
+  .home .space-images .launch {
+    display: none;
+  }
+}
+.home .space-images img {
+  width: 28%;
+  margin: 20px 2.5%;
+  border-radius: 20px;
+  height: 100%;
+}
+.home .visit-planets {
+  padding: 15px;
+}
+.home .visit-planets h3 {
+  margin-top: 11px;
+}
+.home .visit-planets p {
+  margin-top: 13px;
+}
+.home .walk {
+  margin-top: 60px;
+  border-top: 1px solid #282626;
+  padding: 50px 60px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 500px) {
+  .home .walk {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 3px;
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
+.home .walk .walk-text {
+  width: 50%;
+}
+@media (max-width: 500px) {
+  .home .walk .walk-text {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    width: 100%;
+    text-align: justify;
+  }
+}
+.home .walk .walk-text h3 {
+  margin-bottom: 10px;
+}
+.home .walk .walk-text p {
+  margin-bottom: 26px;
+}
+@media (max-width: 500px) {
+  .home .walk .walk-text p {
+    margin-bottom: 2.2rem;
+  }
+}
+.home .walk .walk-text .btn {
+  display: table-cell;
+  background-color: black;
+  margin: 0 10px 20px;
+  cursor: pointer;
+  width: 92px;
+  height: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #C4C4C4;
+  text-align: center;
+  vertical-align: middle;
+}
+.home .walk .walk-text .btn:hover {
+  background-color: #C4C4C4;
+  color: black;
+}
+@media (max-width: 500px) {
+  .home .walk .walk-text .btn {
+    width: 100vw;
+    height: 6vh;
+  }
+}
+.home .walk .walk-img {
+  width: 46%;
+  margin-left: 4%;
+}
+@media (max-width: 500px) {
+  .home .walk .walk-img {
+    order: -1;
+    margin-left: 0;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.home .walk .walk-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.workingOutImg {
+  min-width: 100%;
+  border-radius: 7px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.topSection {
+  background-color: black;
+  margin-bottom: 1.5vh;
+}
+.sectionTwo {
+  display: flex;
+  justify-content: space-around;
+}
+.sectionTwo img {
+  margin-left: 10%;
+  max-width: 20vw;
+}
+.sectionTwo ol {
+  margin-left: 7%;
+  width: 70vw;
+  color: #C4C4C4;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  counter-reset: li;
+  font: 15px 'Montserrat';
+  padding: 0;
+  margin-bottom: 4em;
+  text-shadow: 0 1px 0 black;
+}
+.sectionTwo ol li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #282626;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: 0.3em solid #C4C4C4;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all 0.3s ease-out;
+}
+.sectionTwo ol li {
+  width: 70%;
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 2em;
+  margin: 0.5em auto;
+  background: #282626;
+  color: #C4C4C4;
+  text-decoration: none;
+  border-radius: 0.3em;
+  transition: all 0.3s ease-out;
+}

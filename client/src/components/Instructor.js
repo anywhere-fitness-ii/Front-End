@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {DashboardContext} from '../components/Dashboard'
 import AddClass2 from './AddClass2'
 import InstructorEvents from './InstructorEvents';
 
-const Instructor = (props)=>{
-console.log(props.data, 'instructor props')
-console.log(props, 'props data instructor')
+
+const Instructor = ()=>{
+    const {data, postClass, cardList} = useContext(DashboardContext)
+
+
     return(<div>
-    <InstructorEvents events={props.data} />
+    <InstructorEvents events={data} />
         <h2>This is the Instructor Section</h2>
-        <AddClass2 postClass={props.postClass}/>
+        <AddClass2 postClass={postClass} cardList={cardList}/>
 
 
     </div>)

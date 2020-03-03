@@ -1,25 +1,25 @@
-import React, {useState, useEffect} from 'react'
-import ClassCards from './ClassCards'
+import React, {useState, useEffect, createContext} from 'react'
 import User from './User'
 import UserInfo from './UserInfo'
 import Instructor from './Instructor'
 import {instrData, eventData, addCard} from '../mockData'
+import Sample2 from './Sample2'
 
-  
+export const DashboardContext = createContext();  
 const Dashboard = () =>{
     const [data, setData] = useState([])
     const [userData, setUserData] = useState([])
-    const [addNewCard, setAddNewCard] =useState([])
+    const [cardList, setCardList] =useState([])
 
       useEffect(() => {
     //once get data inputs are created
     setData(eventData)
-    setAddNewCard(addCard)
+    setCardList(addCard)
       }, [])
 
       useEffect(() => {
         //once get data inputs are created
-        setUserData(instrData[1])
+        setUserData(instrData[0])
           }, [])
 
           const postClass = item =>{
@@ -34,28 +34,32 @@ const Dashboard = () =>{
                   intensity: item.intensity,
                   maxParticipants: item.maxParticipants
               }
-              setAddNewCard([...addNewCard, newClass])
+              setCardList([...cardList, newClass])
+              console.log(cardList,'cardList')
           }
 
 
 console.log(data, 'data')
 console.log(userData, 'userdata')
 console.log(eventData, 'event')
+console.log(cardList, 'cardList')
 return(
 
 
 <div style={{display: 'inline-flex'}}>
+    {/* <Sample2 addCard={addCard} postClass={postClass}/> */}
+<DashboardContext.Provider value={{data, userData, postClass, cardList}}>
 
-    <UserInfo userData={userData} />
+    <UserInfo/>
 
     <div style={{ width: '750px'}}>
 
       {userData.role === 'instructor' ? 
-      <Instructor userData={userData} data={data} postClass={postClass}/> : <User userData={userData} />}
-      <ClassCards userData={userData} data={data} addCard={addCard}/>
+      <Instructor/> : <User />}
+      {/* <Card userData={userData} data={data} addCard={addCard}/> */}
       
     </div>
-    
+    </DashboardContext.Provider>
 </div>
 )
 }

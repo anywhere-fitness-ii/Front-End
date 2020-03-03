@@ -7,14 +7,7 @@ const RegistrationForm = (props) => {
   const { register, errors, handleSubmit, reset } = useForm();
   const onSubmit = data => {
     console.log(data); {/* needs to be updated to post to server*/}
-    reset({
-      name: '',
-      email: '',
-      username: '',
-      password: '',
-      imageUrl: '',
-      roleId: ''
-    }) 
+    reset() 
   }
 
   return (

@@ -23,13 +23,19 @@ export const StyledSelect = styled.select`
   padding: 2%;
 `
 
-export const StyledNavLink = styled(NavLink)`
+export const LoginNavLink = styled(NavLink)`
   text-decoration: none;
   width: 50%;
+  font-size: 1.5rem;
   color: black;
-  padding: 1% 5%;
+  padding: 1% 8%;
   border: 1px solid black;
   &:hover {
     font-weight: 800;
   }
+`
+
+export const LoginNavContainer = styled.div`
+  margin: 2% auto;
+  text-align: center;
 `

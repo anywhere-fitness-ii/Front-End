@@ -6,10 +6,7 @@ const LoginForm = (props) => {
   const { errors, register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data)
-    reset({
-      username: '', 
-      password: ''
-    })
+    reset()
   }
 
   return (
@@ -19,7 +16,7 @@ const LoginForm = (props) => {
       {errors.userName && <p>Enter username.</p>}
 
       <StyledInput ref={register({required: true})} type="password" name="password" placeholder="Password"/>
-      {errors.userName && <p>Enter password.</p>}
+      {errors.password && <p>Enter password.</p>}
 
       <button type="submit">Login</button>
     </StyledForm>

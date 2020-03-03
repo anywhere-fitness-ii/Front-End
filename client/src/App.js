@@ -5,7 +5,7 @@ import LoginForm from './components/LoginForm';
 import AddClassForm from './components/AddClass';
 import LoginNav from './components/LoginNav';
 import Dashboard from './components/Dashboard'
-// import './App.css';
+import './App.css';
 import { Container } from './styles/Styles';
 
 

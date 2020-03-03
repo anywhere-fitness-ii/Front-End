@@ -12,6 +12,7 @@ export const StyledForm = styled.form`
   width: 50%;
   margin: 0 auto;
 `
+
 export const StyledInput = styled.input`
   background-color: #282626;
   color: #C4C4C4;
@@ -62,4 +63,8 @@ export const LoginNavContainer = styled.div`
   margin: 2% auto;
   width: 100%;
   text-align: center;
+`
+
+export const H1 = styled.h1`
+  color: #C4C4C4;
 `

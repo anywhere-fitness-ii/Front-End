@@ -3,12 +3,13 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
+import { H1 } from '../styles/Styles';
 
 const ClassCards = (props)=> {
     console.log(props, 'cards props')
     return(
         <div>
-            <h2>Card Section</h2>
+            <H1>Card Section</H1>
             {/* This "addCard" is mock data, will be replaced with actual user data from backend */}
             {props.addCard.map(item=> 
             <Card key={item.id}>

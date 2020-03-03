@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {StyledForm, StyledInput, StyledButton} from '../styles/Styles'
+import {StyledForm, StyledInput, StyledButton, H1} from '../styles/Styles'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import { useForm } from "react-hook-form"
@@ -25,7 +25,7 @@ const LoginForm = (props) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
+      <H1>Login</H1>
       <StyledInput ref={register({required: true})} type="text" name="username" placeholder="Username"/>
       {errors.username && <p>Enter username.</p>}
 

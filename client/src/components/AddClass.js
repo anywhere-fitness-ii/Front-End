@@ -1,70 +1,53 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import { useForm } from "react-hook-form";
+import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 
-//Styles to be moved to a separate file
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-`
-const Input = styled.input`
-  margin: 1% 0;
-  padding: 2%;
-  font-size: 1.5rem;
-`
 
 const AddClassForm = (props) => {
-  const [ inputValues, setInputValues ] = useState({
-    name: '',
-    classType: '',
-    date: '',
-    startTime: '',
-    duration: '',
-    intensity: '',
-    maxParticipants: ''
-  })
-
-  const handleChange = (e) => {
-    setInputValues({...inputValues, [e.target.name]: e.target.value})
-    console.log(inputValues)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setInputValues({
-      name: '',
-      classType: '',
-      date: '',
-      startTime: '',
-      duration: '',
-      location: '',
-      intensity: '',
-      maxParticipants: ''
-    })
+  const { register, handleSubmit, errors, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data)
+    reset()
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <Input onChange={handleChange} type="text" name="name" placeholder="Name" value={inputValues.name}/>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="name" placeholder="Name"/>
+      {errors.name && <p>Required</p>}
+      {errors.name && errors.name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
-      <Input onChange={handleChange} type="text" name="classType" placeholder="Class Type" value={inputValues.classType}/>
+      <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="classType" placeholder="Class Type"/>
+      {errors.classType && <p>Required</p>}
+      {errors.classType && errors.classType.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
-      <Input onChange={handleChange} type="text" name="date" placeholder="Date" value={inputValues.date}/>
+      <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="date" placeholder="Date"/>
+      {errors.date && <p>Required</p>}
+      {errors.date && errors.date.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
-      <Input onChange={handleChange} type="text" name="startTime" placeholder="Start Time" value={inputValues.startTime}/>
+      <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="startTime" placeholder="Start Time"/>
+      {errors.startTime && <p>Required</p>}
+      {errors.startTime && errors.startTime.type === "maxLength" && <p>Must be less than 20 characters.</p>}
+
+      <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="duration" placeholder="Duration"/>
+      {errors.duration && <p>Required</p>}
+      {errors.duration && errors.duration.type === "maxLength" && <p>Must be less than 20 characters.</p>}
       
-      <Input onChange={handleChange} type="text" name="duration" placeholder="Duration" value={inputValues.duration}/>
-      
-      <Input onChange={handleChange} type="text" name="location" placeholder="Location" value={inputValues.duration}/>
+      <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="location" placeholder="Location" />
+      {errors.location && <p>Required</p>}
+      {errors.location && errors.location.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
-      <Input onChange={handleChange} type="text" name="intensity" placeholder="Intensity" value={inputValues.intensity}/>
+      <StyledSelect ref={register({required: true})} name="intensity">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </StyledSelect>
+      {errors.intensity && <p>Required</p>}
 
-      <Input onChange={handleChange} type="text" name="maxParticipants" placeholder="Max Participants" value={inputValues.maxParticipants}/>
+      <StyledInput ref={register({required: true})} type="text" name="maxParticipants" placeholder="Max Participants"/>
+      {errors.maxParticipants && <p>Required</p>}
 
       <button type="submit">Register</button>
-    </FormContainer>
+    </StyledForm>
   )
 }
 

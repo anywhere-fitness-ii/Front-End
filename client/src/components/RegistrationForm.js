@@ -1,67 +1,44 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-
-//Styles to be moved to a separate file
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-`
-const Input = styled.input`
-  margin: 1% 0;
-  padding: 2%;
-  font-size: 1.5rem;
-`
-
-const Select = styled.select`
-  margin: 1% 0;
-  padding: 2%;
-`
+import React from 'react';
+import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
+import { useForm } from "react-hook-form";
 
 
 const RegistrationForm = (props) => {
-  const [ inputValues, setInputValues ] = useState({
-    name: '',
-    email: '',
-    password: '',
-    imageUrl: '',
-    userId: ''
-  })
-
-  const handleChange = (e) => {
-    setInputValues({...inputValues, [e.target.name]: e.target.value})
-    console.log(inputValues)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setInputValues({
-      name: '',
-      email: '',
-      password: '',
-      imageUrl: '',
-      userId: ''
-    })
+  const { register, errors, handleSubmit, reset } = useForm();
+  const onSubmit = data => {
+    console.log(data); {/* needs to be updated to post to server*/}
+    reset() 
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <Input onChange={handleChange} type="text" name="name" placeholder="Name" value={inputValues.name}/>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <h1>Sign Up</h1>
+      <StyledInput ref={register({required: true, maxLength: 30})} type="text" name="name" placeholder="Name" />
+      {errors.name && <p>Required.</p>}
+      {errors.name && errors.name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
-      <Input onChange={handleChange} type="text" name="email" placeholder="Email" value={inputValues.email}/>
+      <StyledInput type="text" name="email" ref={register({required: true})} placeholder="Email" />
+      {errors.email && <p>Required.</p>}
+      
+      <StyledInput type="text" name="username" ref={register({required: true})} placeholder="Username" />
+      {errors.email && <p>Required.</p>}
 
-      <Input onChange={handleChange} type="text" name="password" placeholder="Password" value={inputValues.password}/>
+      <StyledInput type="password" name="password" ref={register({required: true, minLength: 5})} placeholder="Password" />
+      {errors.password && <p>Required.</p>}
+      {errors.password && errors.password.type === "minLength" && <p>Password must be at least 5 characters.</p>}
 
-      <Input onChange={handleChange} type="text" name="imageUrl" placeholder="Profile Image URL" value={inputValues.imageUrl}/>
+      <StyledInput type="text" name="imageUrl" placeholder="Profile Image URL"/>
 
-      <Select name="userId" onChange={handleChange}>
-        <option>Instructor</option>
-        <option>User</option>
-      </Select>
+      <StyledSelect name="roleId" defaultValue="" ref={register({required: true})}>
+        <option value="" disabled hidden>Select Profile Type</option>
+        <option value="1">User</option>
+        <option value="2">Instructor</option>
+        <option value="3">Admin</option>
+      </StyledSelect>
+      {errors.roleId && <p>Required.</p>}
 
       <button type="submit">Register</button>
-    </FormContainer>
+    </StyledForm>
   )
 }
 

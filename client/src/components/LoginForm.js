@@ -1,46 +1,25 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
-//Styles to be moved to a separate file
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-`
-
-const Input = styled.input`
-  margin: 1% 0;
-  padding: 2%;
-  font-size: 1.5rem;
-`
+import {StyledForm, StyledInput} from '../styles/Styles'
+import { useForm } from "react-hook-form"
 
 const LoginForm = (props) => {
-  const [ inputValues, setInputValues ] = useState({
-    userName: '',
-    password: ''
-  })
-
-  const handleChange = (e) => {
-    setInputValues({...inputValues, [e.target.name]: e.target.value})
-    console.log(inputValues)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setInputValues({
-      userName: '',
-      password: ''
-    })
+  const { errors, register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data)
+    reset()
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <Input onChange={handleChange} type="text" name="userName" placeholder="Username" value={inputValues.userName}/>
-      <Input onChange={handleChange} type="text" name="password" placeholder="Password" value={inputValues.password}/>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <h1>Login</h1>
+      <StyledInput ref={register({required: true})} type="text" name="userName" placeholder="Username"/>
+      {errors.userName && <p>Enter username.</p>}
+
+      <StyledInput ref={register({required: true})} type="password" name="password" placeholder="Password"/>
+      {errors.password && <p>Enter password.</p>}
 
       <button type="submit">Login</button>
-    </FormContainer>
+    </StyledForm>
   )
 }
 

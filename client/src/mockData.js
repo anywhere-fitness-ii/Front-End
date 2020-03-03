@@ -57,4 +57,23 @@
   complete: false,
   event_code: '7890',
   }]
+
+  export const addCard = [{
+    name: 'Insanity',
+    classType: 'Intense',
+    date: '1/25/2020',
+    startTime: '9 am',
+    duration: '45 minutes',
+    intensity: 'Advanced',
+    maxParticipants: '10'
+  },
+  {
+    name: 'Yoga',
+    classType: 'Flow',
+    date: '1/25/2020',
+    startTime: '9 am',
+    duration: '45 minutes',
+    intensity: 'beginner',
+    maxParticipants: '10'
+  }]
   

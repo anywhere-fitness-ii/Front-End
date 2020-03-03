@@ -4,11 +4,21 @@ const Card = (props)=>{
     console.log(props, 'cards props')
     return(<div >
         <h2>Card Section</h2>
-        {/* <p>{props.data.event}</p> */}
-                <div style={{display: 'inline-flex'}}>{props.data.map(item=> (
+                <div style={{display: 'inline-flex'}}>{props.addCard.map(item=> (
                     <>
-                    <div key={item.id} style={{border: '2px solid magenta', margin: '10px', height: '200px', width: '200px'}}>
-                        {item.event}
+                    <div key={item.id} style={{border: '2px solid magenta', margin: '10px', height: '300px', width: '300px'}}>
+                        <p>{item.name}</p>
+                        <p>{item.classType}</p>
+                        <p>{item.date}</p>
+                        <p>{item.startTime}</p>
+                        <p>{item.duration}</p>
+                        <p>{item.intensity}</p>
+                        <p>{item.maxParticipants}</p>
+
+
+
+
+
                
                         {props.userData.role === 'instructor' && <div>
                         <button>Edit</button>

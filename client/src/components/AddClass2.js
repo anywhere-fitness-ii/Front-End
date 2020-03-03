@@ -6,9 +6,7 @@ const FormContainer = styled.form`
 
 `
 const Input = styled.input`
-  margin: 1% 0;
-  padding: 2%;
-  font-size: 1.5rem;
+
 `
 
 const AddClassForm = (props) => {
@@ -42,8 +40,13 @@ const AddClassForm = (props) => {
     })
   }
 
+  const submitCard = e =>{
+    e.preventDefault();
+    props.postClass(inputValues)
+  console.log(inputValues, 'inputvalues')}
+console.log(props, 'props data addclass2')
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer onSubmit={submitCard}>
       <Input onChange={handleChange} type="text" name="name" placeholder="Name" value={inputValues.name}/>
 
       <Input onChange={handleChange} type="text" name="classType" placeholder="Class Type" value={inputValues.classType}/>

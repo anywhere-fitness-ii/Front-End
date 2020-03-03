@@ -12,7 +12,10 @@ function App() {
   return (
     <Container>
       {/* Home page with login and registration */}
-      <NavLink to="/dashboard">Dashboard</NavLink>
+     <div> 
+       <NavLink to="/dashboard">Dashboard</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      </div>
       <Route exact path="/">
         <LoginNav/>
         <RegisterForm />

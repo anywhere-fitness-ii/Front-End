@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Card from './Card'
 import AddClass from './AddClass'
 import Sample from './Sample'
-import User from './User'
+import UserInfo from './UserInfo'
 
 
 const infoData =[{
@@ -61,15 +61,15 @@ const Instructor = () =>{
 console.log(data, 'data')
 console.log(userData, 'userdata')
 return(
-    <div>
+    <div style={{background: 'pink'}}>
             <h2>Hello this is the instuctor</h2>
 
 <div style={{display: 'inline-flex'}}>
 
-    <User userData={userData} />
 
     <div style={{ width: '750px'}}>
       <AddClass />
+      
     <Card />
     <Sample data={data}/>
     </div>

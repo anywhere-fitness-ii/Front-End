@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import AddClass from './components/AddClass';
 import styled from 'styled-components';
 import Instructor from './components/Instructor'
+import Dashboard from './components/Dashboard';
 
 
 const Container = styled.div`
@@ -34,7 +35,7 @@ function App() {
       <Route path="/instructor/:id">
       </Route>
 
-      <Route path="/instructor" component={Instructor} />
+      <Route path="/dashboard" component={Dashboard} />
     </Container>
   );
 }

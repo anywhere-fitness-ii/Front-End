@@ -46,7 +46,7 @@ const LoginForm = (props) => {
     .then(res =>{
       // console.log(res, 'res'); console.log(res.data, 'res.data'); console.log(res.data.payload, 'res.daa.payload')
     window.localStorage.setItem('token', res.data.payload)
-    history.push('/instructor')
+    history.push('/dashboard')
     })
     .catch(err=> err)
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 import RegisterForm from './components/RegistrationForm'
 import LoginForm from './components/LoginForm';
 import AddClassForm from './components/AddClass';
@@ -11,6 +11,7 @@ function App() {
   return (
     <Container>
       {/* Home page with login and registration */}
+      <Link>Dashboard</Link>
       <Route exact path="/">
         <LoginNav/>
         <RegisterForm />

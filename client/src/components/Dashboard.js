@@ -5,46 +5,11 @@ import Sample from './Sample'
 import User from './User'
 import UserInfo from './UserInfo'
 import Instructor from './Instructor'
+import {instrData, eventData} from '../mockData'
 
 
-const infoData =[{
-    id:0,
-  event: 'Yoga Retreat',
-  rating: 0,
-  complete: false,
-  event_code: '7890',
-  },
-  {
-    id:1,
-  event: 'p90x',
-  rating: 0,
-  complete: false,
-  event_code: '7890',
-  }]
 
 
-  const instrData = [{
-    instrID: 0,
-    name:'Jenny',
-    role:'instructor',
-    age: '30',
-    height:'',
-    weight: '',
-    bio:'',
-    imageUrl:'',
-    event_post: []
-  },
-  {
-    instrID: 1,
-    name:'Ross',
-    role:'client',
-    age: '40',
-    height:'',
-    weight: '',
-    bio:'',
-    imageUrl:'',
-    event_post: []
-  }];
   
 const Dashboard = () =>{
     const [data, setData] = useState([])
@@ -52,7 +17,7 @@ const Dashboard = () =>{
 
       useEffect(() => {
     //once get data inputs are created
-    setData(infoData)
+    setData(eventData)
       }, [])
 
       useEffect(() => {
@@ -62,20 +27,21 @@ const Dashboard = () =>{
 
 console.log(data, 'data')
 console.log(userData, 'userdata')
+console.log(eventData, 'event')
 return(
-    <div>
+
 
 <div style={{display: 'inline-flex'}}>
 
     <UserInfo userData={userData} />
 
     <div style={{ width: '750px'}}>
-      {userData.role === 'instructor' ? <Instructor /> : <User />}
+
+      {userData.role === 'instructor' ? <Instructor userData={userData} data={data}/> : <User />}
+      <Card data={data}/>
       
     </div>
     
-    
-</div>
 </div>
 )
 }

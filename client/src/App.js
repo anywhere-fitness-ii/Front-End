@@ -4,7 +4,7 @@ import RegisterForm from './components/RegistrationForm'
 import LoginForm from './components/LoginForm';
 import AddClass from './components/AddClass';
 import styled from 'styled-components';
-import Instructor from './components/Instructor'
+import Instructor from './components/Instructor2'
 import Dashboard from './components/Dashboard';
 
 
@@ -18,7 +18,7 @@ function App() {
       {/* Home page with login and registration */}
       <NavLink to="/">Register</NavLink>
       <NavLink to="/login">Login</NavLink>
-      <NavLink to="/instructor">Instructor</NavLink>
+      <NavLink to="/dashboard">Dashboard</NavLink>
       <Route exact path="/">
         <RegisterForm />
       </Route>

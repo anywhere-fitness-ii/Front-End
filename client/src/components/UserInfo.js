@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {DashboardContext} from '../components/Dashboard'
 
-const UserInfo = (props)=>{
 
-    console.log(props, 'user props')
-    console.log(props.userData)
+const UserInfo = ()=>{
+    const value = useContext(DashboardContext)
+
     return(<div style={{width: '350px'}}>
         <h2>Personal Info</h2>
         {/* <h2>{props.userData.map(item=> (
@@ -12,9 +13,9 @@ const UserInfo = (props)=>{
                 <p>{item.role}</p>
             </div>))}</h2> */}
             <h2>
-                <p>{props.userData.name}</p>
-                <p>{props.userData.role}</p>
-                <p>{props.userData.age}</p>
+                <p>{value.userData.name}</p>
+                <p>{value.userData.role}</p>
+                <p>{value.userData.age}</p>
             </h2>
 
     </div>)

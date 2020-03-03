@@ -2,20 +2,15 @@ import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import RegisterForm from './components/RegistrationForm'
 import LoginForm from './components/LoginForm';
-import AddClass from './components/AddClass';
-import styled from 'styled-components';
+import { StyledNavLink, Container }from './styles/Styles';
 
-
-const Container = styled.div`
-  padding: 2%;
-`
 
 function App() {
   return (
     <Container>
       {/* Home page with login and registration */}
-      <NavLink to="/">Register</NavLink>
-      <NavLink to="/login">Login</NavLink>
+      <StyledNavLink to="/">Register</StyledNavLink>
+      <StyledNavLink to="/login">Login</StyledNavLink>
       <Route exact path="/">
         <RegisterForm />
       </Route>

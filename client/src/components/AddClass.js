@@ -1,56 +1,29 @@
-import React, { useState } from 'react';
-import { useForm } from "react-hook-form"
-import {StyledForm, Input} from '../styles/Styles'
+import React from 'react';
+import { useForm } from "react-hook-form";
+import {StyledForm, StyledInput} from '../styles/Styles';
 
 
 const AddClassForm = (props) => {
-  const [ inputValues, setInputValues ] = useState({
-    name: '',
-    classType: '',
-    date: '',
-    startTime: '',
-    duration: '',
-    intensity: '',
-    maxParticipants: ''
-  })
-
-  const handleChange = (e) => {
-    setInputValues({...inputValues, [e.target.name]: e.target.value})
-    console.log(inputValues)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setInputValues({
-      name: '',
-      classType: '',
-      date: '',
-      startTime: '',
-      duration: '',
-      location: '',
-      intensity: '',
-      maxParticipants: ''
-    })
-  }
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = (data) => console.log(data) 
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <Input onChange={handleChange} type="text" name="name" placeholder="Name" value={inputValues.name}/>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="name" placeholder="Name"/>
 
-      <Input onChange={handleChange} type="text" name="classType" placeholder="Class Type" value={inputValues.classType}/>
+      <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="classType" placeholder="Class Type"/>
 
-      <Input onChange={handleChange} type="text" name="date" placeholder="Date" value={inputValues.date}/>
+      <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="date" placeholder="Date"/>
 
-      <Input onChange={handleChange} type="text" name="startTime" placeholder="Start Time" value={inputValues.startTime}/>
+      <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="startTime" placeholder="Start Time"/>
 
-      <Input onChange={handleChange} type="text" name="duration" placeholder="Duration" value={inputValues.duration}/>
+      <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="duration" placeholder="Duration"/>
       
-      <Input onChange={handleChange} type="text" name="location" placeholder="Location" value={inputValues.duration}/>
+      <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="location" placeholder="Location" />
 
-      <Input onChange={handleChange} type="text" name="intensity" placeholder="Intensity" value={inputValues.intensity}/>
+      <StyledInput type="text" name="intensity" placeholder="Intensity"/>
 
-      <Input onChange={handleChange} type="text" name="maxParticipants" placeholder="Max Participants" value={inputValues.maxParticipants}/>
+      <StyledInput type="text" name="maxParticipants" placeholder="Max Participants"/>
 
       <button type="submit">Register</button>
     </StyledForm>

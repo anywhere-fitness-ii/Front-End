@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
+import {StyledForm, StyledInput, StyledSelect, StyledButton, H1} from '../styles/Styles';
 import { useForm } from "react-hook-form";
 
 
@@ -12,7 +12,7 @@ const RegistrationForm = (props) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <h1>Sign Up</h1>
+      <H1>Sign Up</H1>
       <StyledInput ref={register({required: true, maxLength: 30})} type="text" name="name" placeholder="Name" />
       {errors.name && <p>Required.</p>}
       {errors.name && errors.name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
@@ -37,7 +37,7 @@ const RegistrationForm = (props) => {
       </StyledSelect>
       {errors.roleId && <p>Required.</p>}
 
-      <button type="submit">Register</button>
+      <StyledButton type="submit">Register</StyledButton>
     </StyledForm>
   )
 }

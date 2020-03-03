@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {StyledForm, StyledInput} from '../styles/Styles'
+import {StyledForm, StyledInput, StyledButton, H1} from '../styles/Styles'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import { useForm } from "react-hook-form"
@@ -23,18 +23,16 @@ const LoginForm = (props) => {
     reset()
   }
 
-  
-
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
+      <H1>Login</H1>
       <StyledInput ref={register({required: true})} type="text" name="username" placeholder="Username"/>
       {errors.username && <p>Enter username.</p>}
 
       <StyledInput ref={register({required: true})} type="password" name="password" placeholder="Password"/>
       {errors.password && <p>Enter password.</p>}
 
-      <button type="submit">Login</button>
+      <StyledButton type="submit">Login</StyledButton>
     </StyledForm>
   )
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Card from './Card'
+import ClassCards from './ClassCards'
 import User from './User'
 import UserInfo from './UserInfo'
 import Instructor from './Instructor'
@@ -51,8 +51,8 @@ return(
     <div style={{ width: '750px'}}>
 
       {userData.role === 'instructor' ? 
-      <Instructor userData={userData} data={data} postClass={postClass}/> : <User />}
-      <Card userData={userData} data={data} addCard={addCard}/>
+      <Instructor userData={userData} data={data} postClass={postClass}/> : <User userData={userData} />}
+      <ClassCards userData={userData} data={data} addCard={addCard}/>
       
     </div>
     

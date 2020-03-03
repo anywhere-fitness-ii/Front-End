@@ -5,9 +5,6 @@ import UserInfo from './UserInfo'
 import Instructor from './Instructor'
 import {instrData, eventData, addCard} from '../mockData'
 
-
-
-
   
 const Dashboard = () =>{
     const [data, setData] = useState([])
@@ -53,7 +50,8 @@ return(
 
     <div style={{ width: '750px'}}>
 
-      {userData.role === 'instructor' ? <Instructor userData={userData} data={data} postClass={postClass}/> : <User />}
+      {userData.role === 'instructor' ? 
+      <Instructor userData={userData} data={data} postClass={postClass}/> : <User />}
       <Card userData={userData} data={data} addCard={addCard}/>
       
     </div>

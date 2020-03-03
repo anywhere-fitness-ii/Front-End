@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import ClassCards from './ClassCards'
+import React, {useState, useEffect, createContext} from 'react'
+import Card from './Card'
 import User from './User'
 import UserInfo from './UserInfo'
 import Instructor from './Instructor'
 import {instrData, eventData, addCard} from '../mockData'
+import Sample2 from './Sample2'
 
-  
+export const DashboardContext = createContext();  
 const Dashboard = () =>{
     const [data, setData] = useState([])
     const [userData, setUserData] = useState([])
@@ -45,17 +46,19 @@ return(
 
 
 <div style={{display: 'inline-flex'}}>
+    <Sample2 addCard={addCard} postClass={postClass}/>
+<DashboardContext.Provider value={{data, userData, postClass, addCard}}>
 
-    <UserInfo userData={userData} />
+    <UserInfo/>
 
     <div style={{ width: '750px'}}>
 
       {userData.role === 'instructor' ? 
-      <Instructor userData={userData} data={data} postClass={postClass}/> : <User userData={userData} />}
-      <ClassCards userData={userData} data={data} addCard={addCard}/>
+      <Instructor/> : <User />}
+      {/* <Card userData={userData} data={data} addCard={addCard}/> */}
       
     </div>
-    
+    </DashboardContext.Provider>
 </div>
 )
 }

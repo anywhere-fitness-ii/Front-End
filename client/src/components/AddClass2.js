@@ -5,13 +5,19 @@ import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 
 const AddClassForm = (props) => {
   const { register, handleSubmit, errors, reset } = useForm();
-  const onSubmit = (data) => {
-    console.log(data)
+  // const onSubmit = (data) => {
+  //   console.log(data)
+  //   // props.postClass()
+  //   reset()
+  // }
+  const onSit = (addNewCard) => {
+    console.log('Hello World', addNewCard)
+    props.postClass(addNewCard)
     reset()
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(onSit)}>
       <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="name" placeholder="Name"/>
       {errors.name && <p>Required</p>}
       {errors.name && errors.name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
@@ -23,7 +29,7 @@ const AddClassForm = (props) => {
       <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="date" placeholder="Date"/>
       {errors.date && <p>Required</p>}
       {errors.date && errors.date.type === "maxLength" && <p>Must be less than 20 characters.</p>}
-
+{/* 
       <StyledInput ref={register({required: true, maxLength: 10})} type="text" name="startTime" placeholder="Start Time"/>
       {errors.startTime && <p>Required</p>}
       {errors.startTime && errors.startTime.type === "maxLength" && <p>Must be less than 20 characters.</p>}
@@ -44,7 +50,7 @@ const AddClassForm = (props) => {
       {errors.intensity && <p>Required</p>}
 
       <StyledInput ref={register({required: true})} type="text" name="maxParticipants" placeholder="Max Participants"/>
-      {errors.maxParticipants && <p>Required</p>}
+{errors.maxParticipants && <p>Required</p>}*/}
 
       <button type="submit">Register</button>
     </StyledForm>

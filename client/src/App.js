@@ -4,6 +4,7 @@ import RegisterForm from './components/RegistrationForm'
 import LoginForm from './components/LoginForm';
 import AddClassForm from './components/AddClass';
 import LoginNav from './components/LoginNav';
+import Dashboard from './components/Dashboard'
 import { Container } from './styles/Styles';
 
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <Container>
       {/* Home page with login and registration */}
-      <Link>Dashboard</Link>
+      <NavLink to="/dashboard">Dashboard</NavLink>
       <Route exact path="/">
         <LoginNav/>
         <RegisterForm />
@@ -30,6 +31,8 @@ function App() {
       <Route path="/instructor/:id">
         <AddClassForm />
       </Route>
+      <Route path="/dashboard" component={Dashboard} />
+
     </Container>
   );
 }

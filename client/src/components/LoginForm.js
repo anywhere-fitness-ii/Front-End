@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import {StyledForm, StyledInput} from '../styles/Styles'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 const LoginForm = (props) => {
   const { errors, register, handleSubmit, reset } = useForm();
+  const history=useHistory();
+
   const onSubmit = (data) => {
     axiosWithAuth()
     .post(`/api/login`, data)
-    .then(res => console.log(res, 'res'))
+    .then(res => {
+
+      console.log(res, 'res')
+      window.localStorage.setItem('token', res.data.payload)
+      history.push('/dashboard')
+    })
+    .catch(err=>err)
     console.log(data)
     reset()
   }

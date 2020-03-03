@@ -47,13 +47,13 @@ return(
 
 <div style={{display: 'inline-flex'}}>
 <DashboardContext.Provider value={{data, userData, postClass, addCard}}>
-    <Sample />
+
     <UserInfo/>
 
     <div style={{ width: '750px'}}>
 
       {userData.role === 'instructor' ? 
-      <Instructor userData={userData} data={data} postClass={postClass}/> : <User />}
+      <Instructor userData={userData} postClass={postClass}/> : <User />}
       {/* <Card userData={userData} data={data} addCard={addCard}/> */}
       
     </div>

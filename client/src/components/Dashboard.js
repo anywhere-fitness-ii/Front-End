@@ -9,12 +9,12 @@ export const DashboardContext = createContext();
 const Dashboard = () =>{
     const [data, setData] = useState([])
     const [userData, setUserData] = useState([])
-    const [addNewCard, setAddNewCard] =useState([])
+    const [cardList, setCardList] =useState([])
 
       useEffect(() => {
     //once get data inputs are created
     setData(eventData)
-    setAddNewCard(addCard)
+    setCardList(addCard)
       }, [])
 
       useEffect(() => {
@@ -34,19 +34,21 @@ const Dashboard = () =>{
                   intensity: item.intensity,
                   maxParticipants: item.maxParticipants
               }
-              setAddNewCard([...addNewCard, newClass])
+              setCardList([...cardList, newClass])
+              console.log(cardList,'cardList')
           }
 
 
 console.log(data, 'data')
 console.log(userData, 'userdata')
 console.log(eventData, 'event')
+console.log(cardList, 'cardList')
 return(
 
 
 <div style={{display: 'inline-flex'}}>
-    <Sample2 addCard={addCard} postClass={postClass}/>
-<DashboardContext.Provider value={{data, userData, postClass, addCard}}>
+    {/* <Sample2 addCard={addCard} postClass={postClass}/> */}
+<DashboardContext.Provider value={{data, userData, postClass, cardList}}>
 
     <UserInfo/>
 

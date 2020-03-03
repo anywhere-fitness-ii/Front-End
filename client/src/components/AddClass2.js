@@ -12,7 +12,9 @@ const AddClassForm = (props) => {
   // }
   const onSit = (addNewCard) => {
     console.log('Hello World', addNewCard)
+    console.log(props.postClass, 'posClass')
     props.postClass(addNewCard)
+
     reset()
   }
 

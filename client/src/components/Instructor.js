@@ -5,13 +5,13 @@ import InstructorEvents from './InstructorEvents';
 
 
 const Instructor = ()=>{
-    const {data, postClass} = useContext(DashboardContext)
+    const {data, postClass, cardList} = useContext(DashboardContext)
 
 
     return(<div>
     <InstructorEvents events={data} />
         <h2>This is the Instructor Section</h2>
-        <AddClass2 postClass={postClass}/>
+        <AddClass2 postClass={postClass} cardList={cardList}/>
 
 
     </div>)

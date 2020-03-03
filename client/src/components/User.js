@@ -1,11 +1,14 @@
+
 import React from 'react';
+import ClassCards from './ClassCards';
 
-const User = ()=>{
-
-    return(<div>
-<h1>This is the Regular User Dashboard</h1>
+const User = (props)=> {
+  return (
+    <div>
+      <h1>User Dashboard</h1>
     </div>
-    )
+  )
 }
-
+    
 export default User
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
+import {StyledForm, StyledInput, StyledSelect, StyledButton} from '../styles/Styles';
 import { useForm } from "react-hook-form";
 
 
@@ -37,7 +37,7 @@ const RegistrationForm = (props) => {
       </StyledSelect>
       {errors.roleId && <p>Required.</p>}
 
-      <button type="submit">Register</button>
+      <StyledButton type="submit">Register</StyledButton>
     </StyledForm>
   )
 }

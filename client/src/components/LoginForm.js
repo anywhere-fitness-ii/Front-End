@@ -11,7 +11,7 @@ const LoginForm = (props) => {
 
   const onSubmit = (data) => {
     axiosWithAuth()
-    .post(`/api/login`, data)
+    .post(`/auth/login`, data)
     .then(res => {
 
       console.log(res, 'res')

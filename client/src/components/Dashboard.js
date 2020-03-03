@@ -19,7 +19,7 @@ const Dashboard = () =>{
 
       useEffect(() => {
         //once get data inputs are created
-        setUserData(instrData[1])
+        setUserData(instrData[0])
           }, [])
 
           const postClass = item =>{

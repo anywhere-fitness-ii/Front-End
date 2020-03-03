@@ -1,11 +1,24 @@
 import React from 'react';
-import {StyledForm, StyledInput, StyledSelect, StyledButton, H1} from '../styles/Styles';
+import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
+import {useHistory} from 'react-router-dom'
 import { useForm } from "react-hook-form";
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 
 const RegistrationForm = (props) => {
   const { register, errors, handleSubmit, reset } = useForm();
+  const history=useHistory();
+
   const onSubmit = data => {
+    axiosWithAuth()
+    .post(`/auth/register`, data)
+    .then(res=>{
+      console.log(res, 'res')
+      window.localStorage.setItem('token', res.data.payload)
+      history.push('/login')
+
+    })
+    .catch(err=> err)
     console.log(data); {/* needs to be updated to post to server*/}
     reset() 
   }
@@ -27,15 +40,15 @@ const RegistrationForm = (props) => {
       {errors.password && <p>Required.</p>}
       {errors.password && errors.password.type === "minLength" && <p>Password must be at least 5 characters.</p>}
 
-      <StyledInput type="text" name="imageUrl" placeholder="Profile Image URL"/>
+      <StyledInput type="text" name="picture_url" placeholder="Profile Image URL"/>
 
-      <StyledSelect name="roleId" defaultValue="" ref={register({required: true})}>
+      <StyledSelect name="role_id" defaultValue="" ref={register({required: true})}>
         <option value="" disabled hidden>Select Profile Type</option>
         <option value="1">User</option>
         <option value="2">Instructor</option>
         <option value="3">Admin</option>
       </StyledSelect>
-      {errors.roleId && <p>Required.</p>}
+      {errors.role_id && <p>Required.</p>}
 
       <StyledButton type="submit">Register</StyledButton>
     </StyledForm>

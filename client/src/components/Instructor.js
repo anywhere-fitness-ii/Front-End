@@ -55,10 +55,11 @@ const Instructor = () =>{
 
       useEffect(() => {
         //once get data inputs are created
-        setUserData(instrData)
+        setUserData(instrData[0])
           }, [])
 
 console.log(data, 'data')
+console.log(userData, 'userdata')
 return(
     <div>
             <h2>Hello this is the instuctor</h2>
@@ -66,9 +67,13 @@ return(
 <div style={{display: 'inline-flex'}}>
 
     <User userData={userData} />
-    <AddClass />
+
+    <div style={{ width: '750px'}}>
+      <AddClass />
     <Card />
     <Sample data={data}/>
+    </div>
+    
     
 </div>
 </div>

@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
-//Styles to be moved to a separate file
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-`
-
-const Input = styled.input`
-  margin: 1% 0;
-  padding: 2%;
-  font-size: 1.5rem;
-`
+import {StyledForm, Input, Select} from '../styles/Styles'
+import { useForm } from "react-hook-form"
 
 const LoginForm = (props) => {
   const [ inputValues, setInputValues ] = useState({
@@ -35,12 +22,12 @@ const LoginForm = (props) => {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <Input onChange={handleChange} type="text" name="userName" placeholder="Username" value={inputValues.userName}/>
       <Input onChange={handleChange} type="text" name="password" placeholder="Password" value={inputValues.password}/>
 
       <button type="submit">Login</button>
-    </FormContainer>
+    </StyledForm>
   )
 }
 

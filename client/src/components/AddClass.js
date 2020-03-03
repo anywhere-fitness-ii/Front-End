@@ -1,18 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { useForm } from "react-hook-form"
+import {StyledForm, Input} from '../styles/Styles'
 
-//Styles to be moved to a separate file
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-`
-const Input = styled.input`
-  margin: 1% 0;
-  padding: 2%;
-  font-size: 1.5rem;
-`
 
 const AddClassForm = (props) => {
   const [ inputValues, setInputValues ] = useState({
@@ -46,7 +35,7 @@ const AddClassForm = (props) => {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <Input onChange={handleChange} type="text" name="name" placeholder="Name" value={inputValues.name}/>
 
       <Input onChange={handleChange} type="text" name="classType" placeholder="Class Type" value={inputValues.classType}/>
@@ -54,7 +43,7 @@ const AddClassForm = (props) => {
       <Input onChange={handleChange} type="text" name="date" placeholder="Date" value={inputValues.date}/>
 
       <Input onChange={handleChange} type="text" name="startTime" placeholder="Start Time" value={inputValues.startTime}/>
-      
+
       <Input onChange={handleChange} type="text" name="duration" placeholder="Duration" value={inputValues.duration}/>
       
       <Input onChange={handleChange} type="text" name="location" placeholder="Location" value={inputValues.duration}/>
@@ -64,7 +53,7 @@ const AddClassForm = (props) => {
       <Input onChange={handleChange} type="text" name="maxParticipants" placeholder="Max Participants" value={inputValues.maxParticipants}/>
 
       <button type="submit">Register</button>
-    </FormContainer>
+    </StyledForm>
   )
 }
 

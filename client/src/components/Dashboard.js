@@ -1,5 +1,4 @@
 import React, {useState, useEffect, createContext} from 'react'
-import Card from './Card'
 import User from './User'
 import UserInfo from './UserInfo'
 import Instructor from './Instructor'

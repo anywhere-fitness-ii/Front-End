@@ -3,7 +3,7 @@ import {DashboardContext} from '../components/Dashboard'
 
 
 const UserInfo = ()=>{
-    const value = useContext(DashboardContext)
+    const {userData} = useContext(DashboardContext)
 
     return(<div style={{width: '350px'}}>
         <h2>Personal Info</h2>
@@ -13,9 +13,9 @@ const UserInfo = ()=>{
                 <p>{item.role}</p>
             </div>))}</h2> */}
             <h2>
-                <p>{value.userData.name}</p>
-                <p>{value.userData.role}</p>
-                <p>{value.userData.age}</p>
+                <p>{userData.name}</p>
+                <p>{userData.role}</p>
+                <p>{userData.age}</p>
             </h2>
 
     </div>)

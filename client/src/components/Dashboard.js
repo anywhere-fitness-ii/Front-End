@@ -53,7 +53,7 @@ return(
     <div style={{ width: '750px'}}>
 
       {userData.role === 'instructor' ? 
-      <Instructor userData={userData} postClass={postClass}/> : <User />}
+      <Instructor/> : <User />}
       {/* <Card userData={userData} data={data} addCard={addCard}/> */}
       
     </div>

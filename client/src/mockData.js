@@ -36,3 +36,25 @@
   complete: false,
   event_code: '7890',
   }]
+
+  export const eventcards =[{
+    id:0,
+  event: 'Yoga Retreat',
+  time: '9 am - 10 am',
+  duration: '45 minutes',
+  location: 'Evergreen Terrace',
+  rating: 0,
+  complete: false,
+  event_code: '7890',
+  },
+  {
+    id:1,
+  event: 'p90x',
+  time: '9 am - 10 am',
+  duration: '45 minutes',
+  location: 'Evergreen Terrace',
+  rating: 0,
+  complete: false,
+  event_code: '7890',
+  }]
+  

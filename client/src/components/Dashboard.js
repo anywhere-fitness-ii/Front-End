@@ -38,7 +38,7 @@ return(
     <div style={{ width: '750px'}}>
 
       {userData.role === 'instructor' ? <Instructor userData={userData} data={data}/> : <User />}
-      <Card data={data}/>
+      <Card userData={userData} data={data}/>
       
     </div>
     

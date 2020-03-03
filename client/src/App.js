@@ -4,6 +4,7 @@ import RegisterForm from './components/RegistrationForm'
 import LoginForm from './components/LoginForm';
 import AddClass from './components/AddClass';
 import styled from 'styled-components';
+import Instructor from './components/Instructor'
 
 
 const Container = styled.div`
@@ -16,6 +17,7 @@ function App() {
       {/* Home page with login and registration */}
       <NavLink to="/">Register</NavLink>
       <NavLink to="/login">Login</NavLink>
+      <NavLink to="/instructor">Instructor</NavLink>
       <Route exact path="/">
         <RegisterForm />
       </Route>
@@ -31,6 +33,8 @@ function App() {
       {/* Instructor dashboard with addclass form and upcoming classes */}
       <Route path="/instructor/:id">
       </Route>
+
+      <Route path="/instructor" component={Instructor} />
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import User from './User'
 import UserInfo from './UserInfo'
 import Instructor from './Instructor'
 import {instrData, eventData, addCard} from '../mockData'
-import Sample from './Sample'
+import Sample2 from './Sample2'
 
 export const DashboardContext = createContext();  
 const Dashboard = () =>{
@@ -46,6 +46,7 @@ return(
 
 
 <div style={{display: 'inline-flex'}}>
+    <Sample2 addCard={addCard} postClass={postClass}/>
 <DashboardContext.Provider value={{data, userData, postClass, addCard}}>
 
     <UserInfo/>

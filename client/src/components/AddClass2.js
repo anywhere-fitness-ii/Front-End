@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 
 const AddClassForm = (props) => {
+  const [dependencyState, setDependencyState] = useState(false)
+
   const { register, handleSubmit, errors, reset } = useForm();
   // const onSubmit = (data) => {
   //   console.log(data)
   //   // props.postClass()
   //   reset()
   // }
+  
+useEffect(()=>{
+  axiosWithAuth()
+  .get(`/classes`)
+  .then(res=>{
+    console.log(res)
+    setDependencyState(false);
+  })
+  .catch(err=>err)
+
+},[])
+
   const onSit = (addNewCard) => {
     axiosWithAuth()
     .post(`/classes`, addNewCard)
     .then(res=> console.log(res))
     .catch(err=> err)
-    console.log('Hello World', addNewCard)
-    // console.log(props.postClass, 'posClass')
+    console.log('I added this card', addNewCard)
     // props.postClass(addNewCard)
 
     reset()

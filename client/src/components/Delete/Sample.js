@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {DashboardContext} from '../components/Dashboard'
+import {DashboardContext} from '../Dashboard'
 
 const Sample = () =>{
     const value = useContext(DashboardContext)

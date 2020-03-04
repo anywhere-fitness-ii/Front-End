@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import {
     Card, CardImg, CardText, CardBody,
@@ -6,9 +6,38 @@ import {
   } from 'reactstrap';
 
 import { H1 } from '../styles/Styles';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
+const initialData = {
+    class_name: "",
+    class_type: "",
+    class_date: "",
+    class_start_time: "",
+    class_duration: "",
+    class_intensity: "",
+    class_location: "",
+    registered_participants: 0,
+    class_max_participants: 0
+}
 
 const ClassCards = ({classInstance})=> {
-  const {userData} = useContext(DashboardContext)
+  const {userData, classData} = useContext(DashboardContext)
+  const [cardToUpdate, setCardToUpdate]=useState(initialData)
+
+  console.log(classData, 'classdata-classcards')
+
+  const editCard = e =>{
+    setCardToUpdate(initialData)
+  }
+  const updateCard = e=>{
+    e.preventDefault();
+
+    axiosWithAuth()
+    .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
+    .then(res=>{
+      console.log(res, 'res')
+    })
+  }
 
   return (
       <Card className="mt-3">
@@ -25,11 +54,10 @@ const ClassCards = ({classInstance})=> {
           
 
 
-          {userData.role_id === 2? 'yes': 'no'}
-          {/* {userData.map(item=> item.id)} */}
+         
           {userData.role_id === 2 && 
           <div>
-              <Button>Edit</Button>
+              <Button onClick={updateCard}>Edit</Button>
               <Button>Delete</Button>
               <Button>Complete</Button>
           </div>

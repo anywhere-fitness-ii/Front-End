@@ -23,6 +23,7 @@ const AddClass = ({setDependencyState}) => {
 
 
   return (
+    <>
     <StyledForm onSubmit={handleSubmit(onSit)}>
       <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="class_name" placeholder="Name"/>
       {errors.class_name && <p>Required</p>}
@@ -65,6 +66,8 @@ const AddClass = ({setDependencyState}) => {
 
       <button type="submit">Register</button>
     </StyledForm>
+    <button>Edit</button>
+    </>
   )
 }
 

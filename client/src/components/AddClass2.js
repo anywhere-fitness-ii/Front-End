@@ -8,17 +8,6 @@ const AddClassForm = (props) => {
   const [dependencyState, setDependencyState] = useState(false)
 
   const { register, handleSubmit, errors, reset } = useForm();
-  
-useEffect(()=>{
-  axiosWithAuth()
-  .get(`/classes`)
-  .then(res=>{
-    console.log(res)
-    setDependencyState(false);
-  })
-  .catch(err=>err)
-
-},[dependencyState])
 
   const onSit = (addNewCard) => {
     axiosWithAuth()
@@ -27,9 +16,6 @@ useEffect(()=>{
     .catch(err=> err)
     console.log('I added this card', addNewCard)
     setDependencyState(true);
-
-    // props.postClass(addNewCard)
-
     reset()
   }
 

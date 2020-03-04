@@ -1,38 +1,34 @@
 import React from 'react';
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, CardSubtitle, Button, Container
   } from 'reactstrap';
 import { H1 } from '../styles/Styles';
 
-const ClassCards = (props)=> {
-    console.log(props, 'cards props')
-    return(
-        <div>
-            <H1>Card Section</H1>
-            {/* This "addCard" is mock data, will be replaced with actual user data from backend */}
-            {props.addCard.map(item=> 
-            <Card key={item.id}>
-                <CardBody>
-                    <CardTitle >{item.name}</CardTitle>
-                    <CardSubtitle>{item.classType}</CardSubtitle>
-                    <CardSubtitle>{item.date}</CardSubtitle>
-                    <CardSubtitle>{item.startTime}</CardSubtitle>
-                    <CardSubtitle>{item.duration}</CardSubtitle>
-                    <CardSubtitle>{item.intensity}</CardSubtitle>
-                    <CardSubtitle>{item.maxParticipants}</CardSubtitle>
-                    {props.userData.role === 'instructor' && 
-                    <div>
-                        <Button>Edit</Button>
-                        <Button>Delete</Button>
-                        <Button>Complete</Button>
-                    </div>
-                    }
-                </CardBody>
-            </Card>
-            )}
-    </div>
+const ClassCards = ({userData, classInstance})=> {
+    return (
+      <Card className="mt-3">
+        <CardBody>
+          <CardTitle><strong>Class Name: </strong>{classInstance.class_name}</CardTitle>
+          <CardSubtitle className="mt-1"><strong>Class Name: </strong>{classInstance.class_type}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Date: </strong>{classInstance.class_date}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Start Time: </strong>{classInstance.class_start_time}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Duration: </strong>{classInstance.class_duration}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Intensity: </strong>{classInstance.class_intensity}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Location: </strong>{classInstance.class_location}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Registered Participants: </strong>{classInstance.registered_participants}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Max Participants: </strong>{classInstance.class_max_participants}</CardSubtitle>
+          {/* {userData.role === 'instructor' && 
+          <div>
+              <Button>Edit</Button>
+              <Button>Delete</Button>
+              <Button>Complete</Button>
+          </div>
+          } */}
+      </CardBody>
+    </Card>
     )
+
 }
 
 export default ClassCards

@@ -10,11 +10,15 @@ const Dashboard = () =>{
     const [data, setData] = useState([])
     const [userData, setUserData] = useState([])
     const [cardList, setCardList] =useState([])
+    const [dependencyState, setDependencyState] = useState(false)
+
 
       useEffect(() => {
     //once get data inputs are created
     setData(eventData)
     setCardList(addCard)
+    setDependencyState(false);
+
       }, [])
 
       useEffect(() => {

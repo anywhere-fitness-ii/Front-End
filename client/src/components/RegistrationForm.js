@@ -11,7 +11,7 @@ const RegistrationForm = (props) => {
 
   const onSubmit = data => {
     axiosWithAuth()
-    .post(`/api/auth/register`, data)
+    .post(`/auth/register`, data)
     .then(res=>{
       console.log(res, 'res')
       window.localStorage.setItem('token', res.data.payload)

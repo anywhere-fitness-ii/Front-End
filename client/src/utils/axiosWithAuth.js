@@ -8,6 +8,6 @@ export const axiosWithAuth = () => {
     headers: {
       Authorization: token
     },
-    baseURL: `https://anywhere-fitness-backend1.herokuapp.com`
+    baseURL: `https://anywhere-fitness-backend1.herokuapp.com/api`
   });
 };

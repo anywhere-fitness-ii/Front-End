@@ -6,6 +6,8 @@ import { H1 } from '../styles/Styles';
 import { Row, Container, Col } from 'reactstrap';
 import ClassCards from './ClassCards';
 import SearchForm from './SearchForm';
+import UserInfo from './UserInfo';
+
 
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
@@ -18,9 +20,6 @@ const Dashboard = () =>{
 
 
 
-  // const updateUserData = (e) => {
-  //   setUserData(...userData, newUserData)
-  // }
 
   useEffect(() => {
     axiosWithAuth()
@@ -44,6 +43,7 @@ const Dashboard = () =>{
   return (
     <div>
       <DashboardContext.Provider value={{classData, setDependencyState, userData, cardList}}>
+      <UserInfo />
         {userData.role_id === 2 ? 
         <Instructor/>:<User/>
         }

@@ -10,6 +10,15 @@ const Dashboard = () =>{
   const [userData, setUserData]=useState([])
   const [cardList, setCardList]=useState([])
 
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/classes`)
+      .then(res => {
+        console.log(res)
+        setClassData(res.data)
+      })
+  }, [])
+
   return (
     <div>
       {/* <Sample2 addCard={addCard} postClass={postClass}/> */}  

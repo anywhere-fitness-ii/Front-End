@@ -2,16 +2,42 @@ import React, {useState, useContext, useEffect, createContext} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import AddClass from './AddClass'
 import InstructorEvents from './InstructorEvents';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
 
 import { H1 } from '../styles/Styles';
 import { Row, Container, Col } from 'reactstrap';
 import ClassCards from './ClassCards';
 import SearchForm from './SearchForm';
 
+
+const initialData = {
+  class_name: "",
+  class_type: "",
+  class_date: "",
+  class_start_time: "",
+  class_duration: "",
+  class_intensity: "",
+  class_location: "",
+  registered_participants: 0,
+  class_max_participants: 0
+}
 const Instructor = ()=>{
   const {data,userData, classData, setDependencyState, cardList} = useContext(DashboardContext)
-
+console.log('classData from Instr', classData)
   const [ searchTerm, setSearchTerm ] = useState('');
+  const [cardToUpdate, setCardToUpdate]=useState(initialData)
+
+
+  // const updateCard = e=>{
+  //   e.preventDefault();
+
+  //   axiosWithAuth()
+  //   .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
+  //   .then(res=>{
+  //     console.log(res, 'res')
+  //   })
+  // }
 
 
   const checkSearch = (term) => {

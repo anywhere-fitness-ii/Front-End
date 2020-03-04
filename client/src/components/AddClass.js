@@ -5,10 +5,22 @@ import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 
 
+const initialData = {
+  class_name: "",
+  class_type: "",
+  class_date: "",
+  class_start_time: "",
+  class_duration: "",
+  class_intensity: "",
+  class_location: "",
+  registered_participants: 0,
+  class_max_participants: 0
+}
 
 const AddClass = ({setDependencyState}) => {
 
   const { register, handleSubmit, errors, reset } = useForm();
+  const [cardToUpdate, setCardToUpdate]=useState(initialData)
 
   const onSit = (addNewCard) => {
     axiosWithAuth()
@@ -18,6 +30,17 @@ const AddClass = ({setDependencyState}) => {
     console.log('I added this card', addNewCard)
    setDependencyState(true);
     reset()
+  }
+
+  const updateCard = e=>{
+    e.preventDefault();
+
+    axiosWithAuth()
+    .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
+    .then(res=>{
+      console.log(res, 'res')
+    })
+    console.log('yay you clicked me')
   }
 
 
@@ -66,7 +89,7 @@ const AddClass = ({setDependencyState}) => {
 
       <button type="submit">Register</button>
     </StyledForm>
-    <button>Edit</button>
+    <button onClick={updateCard}>Edit</button>
     </>
   )
 }

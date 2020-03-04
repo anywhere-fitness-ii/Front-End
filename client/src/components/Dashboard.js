@@ -29,6 +29,8 @@ const Dashboard = () =>{
         console.log(res)
         setClassData(res.data)
         setDependencyState(false);
+        console.log(dependencyState, 'dependency initial state')
+
       })
   }, [dependencyState])
 
@@ -43,8 +45,7 @@ const Dashboard = () =>{
 
   return (
     <div>
-      {/* <Sample2 addCard={addCard} postClass={postClass}/> */}  
-      <DashboardContext.Provider value={{classData, userData, cardList}}>
+      <DashboardContext.Provider value={{classData, setDependencyState, userData, cardList}}>
         {userData.role_id === 2 ? 
         <Instructor/>:<User/>
         }
@@ -55,6 +56,8 @@ const Dashboard = () =>{
       <Row>
           {classData.filter((item) => checkSearch(item.class_name)).map((item) => 
           <Col key={item.id} md="4">
+            <h1>{userData.role_id === 2 ? 'yes': 'no'}</h1>
+
             <ClassCards classInstance={item}/>
           </Col>
           )}

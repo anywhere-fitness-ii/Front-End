@@ -11,11 +11,10 @@ const LoginForm = (props) => {
 
   const onSubmit = (data) => {
     axiosWithAuth()
-    .post(`/auth/login`, data)
+    .post(`/api/auth/login`, data)
     .then(res => {
-
       console.log(res, 'res')
-      window.localStorage.setItem('token', res.data.payload)
+      window.localStorage.setItem('token', res.data.token); {/* Ebi - I changed the response to return the token instead of the Payload*/}
       history.push('/dashboard')
     })
     .catch(err=>err)

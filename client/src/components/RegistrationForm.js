@@ -11,15 +11,13 @@ const RegistrationForm = (props) => {
 
   const onSubmit = data => {
     axiosWithAuth()
-    .post(`/auth/register`, data)
+    .post(`/api/auth/register`, data)
     .then(res=>{
       console.log(res, 'res')
       window.localStorage.setItem('token', res.data.payload)
       history.push('/login')
-
     })
     .catch(err=> err)
-    console.log(data); {/* needs to be updated to post to server*/}
     reset() 
   }
 

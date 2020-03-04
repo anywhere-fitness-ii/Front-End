@@ -2,22 +2,23 @@ import React, {useContext} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 
 
-const UserInfo = ()=>{
+const UserInfo = () => {
     const {userData} = useContext(DashboardContext)
+    console.log(userData.age)
     return(
-      <div style={{width: '350px'}}>
-        <h2>Personal Info</h2>
-        {/* {props.userData.map(item=> (
-            <div key={item.instrID}>
-                <p>{item.name}</p>
-                <p>{item.role}</p>
-            </div>))}
-            <h2>
-                <p>{userData.name}</p>
-                <p>{userData.role}</p>
-                <p>{userData.age}</p>
-            </h2> */}
-    </div>)
+      <div>
+        <div>
+          <img src={userData.picture_url}/>
+          <h1>{userData.name}</h1>
+        </div>
+        <div>
+          <h2>Personal Info</h2>
+          {<span><strong>Age</strong></span>&&<span>{userData.age}</span>}<br/>
+          {<span><strong>Height</strong></span>&&<span>{userData.height}</span>}<br/>
+          {<span><strong>Weight</strong></span>&&<span>{userData.weight}</span>}<br/>
+        </div>
+      </div>
+    )
 }
 
 export default UserInfo

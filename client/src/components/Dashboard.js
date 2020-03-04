@@ -14,19 +14,18 @@ const Dashboard = () =>{
   const [classData, setClassData] = useState([])
   const [userData, setUserData]=useState([])
   const [cardList, setCardList]=useState([])
-
   const [dependencyState, setDependencyState] = useState(false)
-  const [ searchTerm, setSearchTerm ] = useState('');
 
-  const checkSearch = (term) => {
-    return term.toLowerCase().includes(searchTerm.toLowerCase())
-  }
+
+
+  // const updateUserData = (e) => {
+  //   setUserData(...userData, newUserData)
+  // }
 
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
       .then(res => {
-        console.log(res)
         setClassData(res.data)
         setDependencyState(false);
         console.log(dependencyState, 'dependency initial state')
@@ -38,8 +37,7 @@ const Dashboard = () =>{
     axiosWithAuth()
       .get(`/users/${localStorage.getItem('user_Id')}`)
       .then(res => {
- console.log(res.data, 'res.data')
- setUserData(res.data)
+      setUserData(res.data)
       })
   }, [])
 
@@ -49,19 +47,6 @@ const Dashboard = () =>{
         {userData.role_id === 2 ? 
         <Instructor/>:<User/>
         }
-
-<Container>
-      <H1>Available Classes</H1>
-      <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-      <Row>
-          {classData.filter((item) => checkSearch(item.class_name)).map((item) => 
-          <Col key={item.id} md="4">
-            <ClassCards classInstance={item}/>
-          </Col>
-          )}
-      </Row>
-    </Container>
-
       </DashboardContext.Provider>
     </div>
     )

@@ -10,9 +10,9 @@ const SearchForm = ({setSearchTerm, searchTerm}) => {
 
   return (
     <StyledForm>
-      <label for="name">Class Name:</label>
+      <label htmlFor="name">Class Name:</label>
       <StyledInput onChange={handleChange} type="text" name="name"/>
-      
+
 {/*    Not sure if we will include additional search fields. Maybe if extra time.   
       <label for="date"></label> 
       <StyledInput onChange={handleChange} type="text" name="date"/>

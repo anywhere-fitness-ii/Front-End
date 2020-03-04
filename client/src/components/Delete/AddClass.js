@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import {StyledForm, StyledInput, StyledSelect} from '../../styles/Styles';
+import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 
 
 const AddClassForm = (props) => {

@@ -24,9 +24,9 @@ const RegistrationForm = (props) => {
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <H1>Sign Up</H1>
-      <StyledInput ref={register({required: true, maxLength: 30})} type="text" name="name" placeholder="Name" />
+      <StyledInput ref={register({required: true, maxLength: 40})} type="text" name="name" placeholder="Name" />
       {errors.name && <p>Required.</p>}
-      {errors.name && errors.name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
+      {errors.name && errors.name.type === "maxLength" && <p>Must be less than 40 characters.</p>}
 
       <StyledInput type="text" name="email" ref={register({required: true})} placeholder="Email" />
       {errors.email && <p>Required.</p>}

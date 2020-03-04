@@ -5,22 +5,13 @@ import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 
 const AddClassForm = (props) => {
   const { register, handleSubmit, errors, reset } = useForm();
-  // const onSubmit = (data) => {
-  //   console.log(data)
-  //   // props.postClass()
-  //   reset()
-  // }
-
-  const onSit = (addNewCard) => {
-    console.log('Hello World', addNewCard)
-    console.log(props.postClass, 'posClass')
-    props.postClass(addNewCard)
-
+  const onSubmit = (data) => {
+    console.log(data)
     reset()
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSit)}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="name" placeholder="Name"/>
       {errors.name && <p>Required</p>}
       {errors.name && errors.name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
@@ -53,7 +44,7 @@ const AddClassForm = (props) => {
       {errors.intensity && <p>Required</p>}
 
       <StyledInput ref={register({required: true})} type="text" name="maxParticipants" placeholder="Max Participants"/>
-{errors.maxParticipants && <p>Required</p>}
+      {errors.maxParticipants && <p>Required</p>}
 
       <button type="submit">Register</button>
     </StyledForm>

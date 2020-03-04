@@ -10,7 +10,7 @@ const ClassCards = ({userData, classInstance})=> {
       <Card className="mt-3">
         <CardBody>
           <CardTitle><strong>Class Name: </strong>{classInstance.class_name}</CardTitle>
-          <CardSubtitle className="mt-1"><strong>Class Name: </strong>{classInstance.class_type}</CardSubtitle>
+          <CardSubtitle className="mt-1"><strong>Class Type: </strong>{classInstance.class_type}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Date: </strong>{classInstance.class_date}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Start Time: </strong>{classInstance.class_start_time}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Duration: </strong>{classInstance.class_duration}</CardSubtitle>

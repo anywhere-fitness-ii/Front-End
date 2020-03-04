@@ -10,11 +10,15 @@ const Dashboard = () =>{
   const [userData, setUserData]=useState([])
   const [cardList, setCardList]=useState([])
 
+
+  const updateUserData = (e) => {
+    setUserData(...userData, newUserData)
+  }
+
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
       .then(res => {
-        console.log(res)
         setClassData(res.data)
       })
   }, [])
@@ -23,21 +27,19 @@ const Dashboard = () =>{
     axiosWithAuth()
       .get(`/users/${localStorage.getItem('user_Id')}`)
       .then(res => {
- console.log(res.data, 'res.data')
- setUserData(res.data)
+      setUserData(res.data)
       })
   }, [])
 
   return (
-    <div>
-      {/* <Sample2 addCard={addCard} postClass={postClass}/> */}  
-      <DashboardContext.Provider value={{classData, userData, cardList}}>
-        {}
+    <div> 
+      {userData && classData ? 
+      <DashboardContext.Provider value={{classData, userData, cardList, updateUserData}}>
         {userData.role_id === 2 ? 
         <Instructor/>:<User/>
-        
         }
-      </DashboardContext.Provider>
+      </DashboardContext.Provider> :
+      null}
     </div>
     )
 }

@@ -1,11 +1,12 @@
-import React, {useContext} from 'react';
-import {DashboardContext} from '../components/Dashboard'
+import React, {useContext, useState} from 'react';
+import {DashboardContext} from '../components/Dashboard';
+import EditModal from './EditModal';
 
 
 const UserInfo = () => {
     const {userData} = useContext(DashboardContext)
-    console.log(userData.age)
-    return(
+
+    return (
       <div>
         <div>
           <img src={userData.picture_url}/>
@@ -13,10 +14,11 @@ const UserInfo = () => {
         </div>
         <div>
           <h2>Personal Info</h2>
-          {<span><strong>Age</strong></span>&&<span>{userData.age}</span>}<br/>
-          {<span><strong>Height</strong></span>&&<span>{userData.height}</span>}<br/>
-          {<span><strong>Weight</strong></span>&&<span>{userData.weight}</span>}<br/>
+          {<span>Age: {userData.age}</span>}<br/>
+          {<span>Height: {userData.height}</span>}<br/>
+          {<span>Weight: {userData.weight}</span>}<br/>
         </div>
+        <EditModal buttonLabel={'Edit User Info'} className={'placeholder'}/>
       </div>
     )
 }

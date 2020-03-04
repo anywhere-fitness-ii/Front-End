@@ -10,6 +10,11 @@ const Dashboard = () =>{
   const [userData, setUserData]=useState([])
   const [cardList, setCardList]=useState([])
 
+
+  const updateUserData = (e) => {
+    setUserData(...userData, newUserData)
+  }
+
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
@@ -29,7 +34,7 @@ const Dashboard = () =>{
   return (
     <div> 
       {userData && classData ? 
-      <DashboardContext.Provider value={{classData, userData, cardList}}>
+      <DashboardContext.Provider value={{classData, userData, cardList, updateUserData}}>
         {userData.role_id === 2 ? 
         <Instructor/>:<User/>
         }

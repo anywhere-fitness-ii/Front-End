@@ -7,7 +7,7 @@ export const axiosWithAuth = () => {
   //create a new instance of axios witht he config object built into it
   return axios.create({
     headers: {
-      authorization: token
+      Authorization: token
     },
     baseURL: "https://anywhere-fitness-backend1.herokuapp.com/api"
   });

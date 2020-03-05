@@ -5,6 +5,7 @@ import { H1 } from '../styles/Styles';
 import { Row, Container, Col } from 'reactstrap';
 import ClassCards from './ClassCards';
 import SearchForm from './SearchForm';
+import SavedClasses from './SavedClasses';
 
 const User = ()=> {
   const {userData, classData} = useContext(DashboardContext)
@@ -16,7 +17,7 @@ const User = ()=> {
   }
 
   return (
-    <Container style={{border: '1px solid black'}}>
+    <Container style={{border: '1px solid black'}} className="p-4">
       <H1>Available Classes</H1>
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearchCategory={setSearchCategory} searchCategory={searchCategory}/>
       <Row>

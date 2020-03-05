@@ -56,10 +56,6 @@ const AddClass = props => {
 
   const setData = e => {
 
-    console.log('eeee: ' + e.target.value + ' - ' + e.target.name);
-
-    console.log(initialValue);
-
     setInitialValue(prevState => ({
       initialValue: {
         [e.target.name]: e.target.value

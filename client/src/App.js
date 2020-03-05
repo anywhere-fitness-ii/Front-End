@@ -19,14 +19,11 @@ function App() {
           <LoginNav/>
           <RegisterForm />
         </Route>
-
         <Route path="/login">
           <LoginNav/>
           <LoginForm />
         </Route>
-
         <Route path="/dashboard" component={Dashboard} />
-
       </LoginWrapper>
     </div>
   );

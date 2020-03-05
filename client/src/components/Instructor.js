@@ -27,13 +27,17 @@ const Instructor = ()=>{
   const {data,userData, classData, setDependencyState, cardList, cardToUpdate, setCardToUpdate } = useContext(DashboardContext)
 console.log('classData from Instr', classData)
   const [ searchTerm, setSearchTerm ] = useState('');
+  const [ defaultData, setDefaultData ] = useState('');
 
   const populate = (data) => {
 
     console.log("Aaaa");
     console.log(data);
+    setDefaultData(data);
 
   }
+
+  useEffect(() => console.log('bbbb: ' + defaultData));
 
   const checkSearch = (term) => {
     return term.toLowerCase().includes(searchTerm.toLowerCase())
@@ -42,7 +46,8 @@ console.log('classData from Instr', classData)
     <div>
       <InstructorEvents userData={userData} events={data} />
         <h2>This is the Instructor Section</h2>
-        <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList}/>
+        {console.log('dddd: ' + defaultData)}
+        <AddClass defaultData={defaultData} cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList}/>
    
 
 

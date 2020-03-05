@@ -22,7 +22,7 @@ const initialData = {
     class_max_participants: 0
 }
 
-const ClassCards = ({classInstance, setCardToUpdate, populate})=> {
+const ClassCards = ({classInstance, setCardToUpdate})=> {
   const {userData, classData} = useContext(DashboardContext)
   // const [cardToUpdate, setCardToUpdate]=useState(initialData)
 
@@ -57,7 +57,7 @@ const ClassCards = ({classInstance, setCardToUpdate, populate})=> {
          
           {userData.role_id === 2 && 
           <div>
-              <Button onClick={()=>{setCardToUpdate(classInstance); populate(classInstance);}}>Edit</Button>
+              <Button onClick={()=>{setCardToUpdate(classInstance);}}>Edit</Button>
               <Button>Delete</Button>
               <Button>Complete</Button>
           </div>

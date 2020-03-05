@@ -1,26 +1,14 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 
-
-const initialData = {
-  class_name: "",
-  class_type: "",
-  class_date: "",
-  class_start_time: "",
-  class_duration: "",
-  class_intensity: "",
-  class_location: "",
-  registered_participants: 0,
-  class_max_participants: 0
-}
-
-const AddClass = ({setDependencyState}) => {
+const AddClass = ({setDependencyState, cardToUpdate}) => {
 
   const { register, handleSubmit, errors, reset } = useForm();
-  const [cardToUpdate, setCardToUpdate]=useState(initialData)
 
   const onSit = (addNewCard) => {
     axiosWithAuth()
@@ -31,12 +19,12 @@ const AddClass = ({setDependencyState}) => {
    setDependencyState(true);
     reset()
   }
-
-  const updateCard = e=>{
+  
+const updateCard = e=>{
     e.preventDefault();
 
     axiosWithAuth()
-    .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
+    // .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
     .then(res=>{
       console.log(res, 'res')
     })
@@ -44,7 +32,7 @@ const AddClass = ({setDependencyState}) => {
   }
 
 
-
+console.log(cardToUpdate, 'card to update')
   return (
     <>
     <StyledForm onSubmit={handleSubmit(onSit)}>
@@ -95,3 +83,4 @@ const AddClass = ({setDependencyState}) => {
 }
 
 export default AddClass;
+

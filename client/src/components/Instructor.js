@@ -24,20 +24,9 @@ const initialData = {
   class_max_participants: 0
 }
 const Instructor = ()=>{
-  const {data,userData, classData, setDependencyState, cardList, cardToUpdate, setCardToUpdate } = useContext(DashboardContext)
+  const {data,userData, classData, setDependencyState, cardList, cardToUpdate, setCardToUpdate, editing, setEditing } = useContext(DashboardContext)
 console.log('classData from Instr', classData)
   const [ searchTerm, setSearchTerm ] = useState('');
-  const [ defaultData, setDefaultData ] = useState('');
-
-  const populate = (data) => {
-
-    console.log("Aaaa");
-    console.log(data);
-    setDefaultData(data);
-
-  }
-
-  useEffect(() => console.log('bbbb: ' + defaultData));
 
   const checkSearch = (term) => {
     return term.toLowerCase().includes(searchTerm.toLowerCase())
@@ -46,8 +35,7 @@ console.log('classData from Instr', classData)
     <div>
       <InstructorEvents userData={userData} events={data} />
         <h2>This is the Instructor Section</h2>
-        {console.log('dddd: ' + defaultData)}
-        <AddClass defaultData={defaultData} cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList}/>
+        <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList} editing={editing} setEditing={setEditing}/>
    
 
 
@@ -57,7 +45,7 @@ console.log('classData from Instr', classData)
       <Row>
           {classData.filter((item) => checkSearch(item.class_name)).map((item) => 
           <Col key={item.id} md="4">
-            <ClassCards populate={populate} setCardToUpdate={setCardToUpdate} classInstance={item}/>
+            <ClassCards setCardToUpdate={setCardToUpdate} classInstance={item} setEditing={setEditing}/>
           </Col>
           )}
       </Row>

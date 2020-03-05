@@ -1,7 +1,13 @@
 import React from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import { MainNavLink, MainNavContainer } from '../styles/Styles'
 
-const MainNav = () => {
+const MainNav = () => 
+  <MainNavContainer> 
+    <div>
+      <MainNavLink to="/dashboard">Dashboard</MainNavLink>
+      <MainNavLink to="/login">Login</MainNavLink>
+    </div>
+  </MainNavContainer>
 
-}
+export default MainNav;
 

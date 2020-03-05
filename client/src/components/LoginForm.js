@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {StyledForm, StyledInput, StyledButton, H1} from '../styles/Styles'
-import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import {axiosWithAuth} from '../utils/axiosWithAuth'

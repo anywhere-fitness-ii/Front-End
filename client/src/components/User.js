@@ -5,8 +5,6 @@ import { H1 } from '../styles/Styles';
 import { Row, Container, Col } from 'reactstrap';
 import ClassCards from './ClassCards';
 import SearchForm from './SearchForm';
-import UserInfo from './UserInfo';
-
 
 const User = ()=> {
   const {userData, classData} = useContext(DashboardContext)

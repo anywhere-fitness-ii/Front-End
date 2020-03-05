@@ -13,7 +13,6 @@ import UserInfo from './UserInfo';
 
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-
 const initialData = {
   class_name: "",
   class_type: "",
@@ -32,25 +31,14 @@ const Dashboard = () =>{
   const [userData, setUserData]=useState([])
   const [cardList, setCardList]=useState([])
   const [dependencyState, setDependencyState] = useState(false)
-  const [cardToUpdate, setCardToUpdate]=useState(initialData)
+  const [cardToUpdate, setCardToUpdate] = useState(initialData)
 
-<<<<<<< HEAD
-=======
- 
-
-
->>>>>>> 2b149948bd952d44a15bd3d7f087915a70c48f03
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
       .then(res => {
         setClassData(res.data)
         setDependencyState(false);
-<<<<<<< HEAD
-        console.log(dependencyState, 'dependency initial state')
-=======
-
->>>>>>> 2b149948bd952d44a15bd3d7f087915a70c48f03
       })
   }, [dependencyState])
 

@@ -33,7 +33,6 @@ const Dashboard = () =>{
     setUserData({...userData, ...data})
   }
 
-
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
@@ -54,7 +53,7 @@ const Dashboard = () =>{
   return (
 
     <DashboardWrapper>
-      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, editing, setEditing}}>
+      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, editing, setEditing, updateUserData}}>
       <UserInfo />
         {userData.role_id === 2 ? 
         <Instructor />:<User/>

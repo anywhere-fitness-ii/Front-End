@@ -1,14 +1,18 @@
 
 
 import React, { useEffect, useState } from 'react';
+import {useParams} from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
+// import {useProps} from 'react-router-dom'
 
 
 const AddClass = ({setDependencyState, cardToUpdate}) => {
 
   const { register, handleSubmit, errors, reset } = useForm();
+  const {id} = useParams()
+  // const itemToUpdate = cardToUpdate.find(item=> `${item.id}`=== id)
 
   const onSit = (addNewCard) => {
     axiosWithAuth()
@@ -35,6 +39,7 @@ const updateCard = e=>{
 console.log(cardToUpdate, 'card to update')
   return (
     <>
+    {/* {cardToUpdate?} */}
     <StyledForm onSubmit={handleSubmit(onSit)}>
       <StyledInput ref={register({required: true, maxLength: 20})} type="text" name="class_name" placeholder="Name"/>
       {errors.class_name && <p>Required</p>}
@@ -77,7 +82,7 @@ console.log(cardToUpdate, 'card to update')
 
       <button type="submit">Register</button>
     </StyledForm>
-    <button onClick={updateCard}>Edit</button>
+    {/* <button onClick={updateCard}>Edit</button> */}
     </>
   )
 }

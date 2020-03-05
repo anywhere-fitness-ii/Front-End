@@ -28,6 +28,12 @@ const Instructor = ()=>{
 console.log('classData from Instr', classData)
   const [ searchTerm, setSearchTerm ] = useState('');
 
+  const populate = (data) => {
+
+    console.log("Aaaa");
+    console.log(data);
+
+  }
 
   const checkSearch = (term) => {
     return term.toLowerCase().includes(searchTerm.toLowerCase())
@@ -46,7 +52,7 @@ console.log('classData from Instr', classData)
       <Row>
           {classData.filter((item) => checkSearch(item.class_name)).map((item) => 
           <Col key={item.id} md="4">
-            <ClassCards setCardToUpdate={setCardToUpdate} classInstance={item}/>
+            <ClassCards populate={populate} setCardToUpdate={setCardToUpdate} classInstance={item}/>
           </Col>
           )}
       </Row>

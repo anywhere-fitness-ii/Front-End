@@ -34,9 +34,6 @@ const Dashboard = () =>{
   const [dependencyState, setDependencyState] = useState(false)
   const [cardToUpdate, setCardToUpdate]=useState(initialData)
 
- 
-
-
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
@@ -60,7 +57,7 @@ const Dashboard = () =>{
       <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList}}>
       <UserInfo />
         {userData.role_id === 2 ? 
-        <Instructor/>:<User/>
+        <Instructor />:<User/>
         }
       </DashboardContext.Provider>
     </div>

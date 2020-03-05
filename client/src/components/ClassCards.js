@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import {
-    Card, CardImg, CardText, CardBody,
+    Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Container
   } from 'reactstrap';
 

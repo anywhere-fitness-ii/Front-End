@@ -18,7 +18,6 @@ const User = ()=> {
 
   return (
     <Container>
-      <UserInfo />
       <H1>Available Classes</H1>
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       <Row>

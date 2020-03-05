@@ -1,7 +1,9 @@
+
+
 import React, {useContext, useState} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import {
-    Card, CardText, CardBody,
+    Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Container
   } from 'reactstrap';
 
@@ -20,20 +22,16 @@ const initialData = {
     class_max_participants: 0
 }
 
-const ClassCards = ({classInstance})=> {
+const ClassCards = ({classInstance, setCardToUpdate})=> {
   const {userData, classData} = useContext(DashboardContext)
-  const [cardToUpdate, setCardToUpdate]=useState(initialData)
+  // const [cardToUpdate, setCardToUpdate]=useState(initialData)
 
-  console.log(classData, 'classdata-classcards')
 
-  const editCard = e =>{
-    setCardToUpdate(initialData)
-  }
   const updateCard = e=>{
     e.preventDefault();
 
     axiosWithAuth()
-    .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
+    // .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
     .then(res=>{
       console.log(res, 'res')
     })
@@ -57,7 +55,7 @@ const ClassCards = ({classInstance})=> {
          
           {userData.role_id === 2 && 
           <div>
-              <Button onClick={updateCard}>Edit</Button>
+              <Button onClick={()=>setCardToUpdate(classInstance)}>Edit</Button>
               <Button>Delete</Button>
               <Button>Complete</Button>
           </div>

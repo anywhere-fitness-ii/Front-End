@@ -1,3 +1,4 @@
+
 import React, {useState, useContext, useEffect, createContext} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import AddClass from './AddClass'
@@ -23,21 +24,9 @@ const initialData = {
   class_max_participants: 0
 }
 const Instructor = ()=>{
-  const {data,userData, classData, setDependencyState, cardList} = useContext(DashboardContext)
+  const {data,userData, classData, setDependencyState, cardList, cardToUpdate, setCardToUpdate } = useContext(DashboardContext)
 console.log('classData from Instr', classData)
   const [ searchTerm, setSearchTerm ] = useState('');
-  const [cardToUpdate, setCardToUpdate]=useState(initialData)
-
-
-  // const updateCard = e=>{
-  //   e.preventDefault();
-
-  //   axiosWithAuth()
-  //   .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
-  //   .then(res=>{
-  //     console.log(res, 'res')
-  //   })
-  // }
 
 
   const checkSearch = (term) => {
@@ -47,7 +36,7 @@ console.log('classData from Instr', classData)
     <div>
       <InstructorEvents userData={userData} events={data} />
         <h2>This is the Instructor Section</h2>
-        <AddClass setDependencyState={setDependencyState} userData={userData} cardList={cardList}/>
+        <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList}/>
    
 
 
@@ -57,7 +46,7 @@ console.log('classData from Instr', classData)
       <Row>
           {classData.filter((item) => checkSearch(item.class_name)).map((item) => 
           <Col key={item.id} md="4">
-            <ClassCards classInstance={item}/>
+            <ClassCards setCardToUpdate={setCardToUpdate} classInstance={item}/>
           </Col>
           )}
       </Row>

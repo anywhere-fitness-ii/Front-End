@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InstructorEvents = (props)=>{
-console.log(props, 'instructor event')
+// console.log(props, 'instructor event')
     return(<div>
         <h2>Events</h2>
         {/* <div style={{display: 'inline-flex'}}>{props.events.map(item=> (

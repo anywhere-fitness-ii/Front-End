@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import { StyledLabel, StyledInput, StyledForm, StyledButton } from '../styles/Styles'
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const SearchForm = ({setSearchTerm, searchTerm}) => {
+const SearchForm = ({setSearchTerm, setSearchCategory, searchCategory}) => {
+
   const handleChange = (e) => {
     setSearchTerm(e.target.value)
-    console.log(searchTerm)
+  }
+
+  const handleCategory = (e) => {
+    setSearchCategory(e.target.value)
   }
 
   return (
     <StyledForm>
-      <label htmlFor="name">Class Name:</label>
-      <StyledInput onChange={handleChange} type="text" name="name"/>
+      <StyledLabel>Search By: </StyledLabel>
+      <select onChange={handleCategory} value={searchCategory}>
+        <option value={'class_name'}>Class Name</option>
+        <option value={'class_location'}>Class Location</option>
+      </select>
 
-{/*    Not sure if we will include additional search fields. Maybe if extra time.   
-      <label for="date"></label> 
-      <StyledInput onChange={handleChange} type="text" name="date"/>
-      
-      <label for="location"></label>
-      <StyledInput onChange={handleChange} type="text" name="location"/>
-      
-      <label for="intensity"></label>
-      <StyledInput onChange={handleChange} type="text" name="intensity"/> */}
+      <StyledInput onChange={handleChange} type="text" name="name" placeholder={searchCategory === 'class_location' ? "Class Location" : "Class Name"}/>
+
     </StyledForm>
   )
 }

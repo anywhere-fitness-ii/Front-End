@@ -14,12 +14,11 @@ const EditModal = (props) => {
  
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
+      <Button onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Edit User Profile</ModalHeader>
         <EditProfileForm />
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>

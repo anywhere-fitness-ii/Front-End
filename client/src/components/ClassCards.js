@@ -46,10 +46,6 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing})=> {
           <CardSubtitle className="mt-1"><strong>Location: </strong>{classInstance.class_location}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Registered Participants: </strong>{classInstance.registered_participants}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Max Participants: </strong>{classInstance.class_max_participants}</CardSubtitle>
-          
-
-
-         
           {userData.role_id === 2 && 
           <div>
 

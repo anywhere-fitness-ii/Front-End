@@ -5,7 +5,6 @@ import {useParams} from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
-// import {useProps} from 'react-router-dom'
 
 
 const AddClass = props => {
@@ -14,8 +13,6 @@ const AddClass = props => {
   const [initialValue, setInitialValue] = useState(props.cardToUpdate);
   const [button, setButton] = useState('Submit');
   const [flag, setFlag] = useState(false);
-  const {id} = useParams()
-  // const itemToUpdate = cardToUpdate.find(item=> `${item.id}`=== id)
 
   const onSit = (addNewCard) => {
 
@@ -40,6 +37,7 @@ const AddClass = props => {
 
     }
   }
+
 
   useEffect(() => {
 
@@ -73,26 +71,21 @@ const AddClass = props => {
   const setOption = (option) => {
 
     console.log(option);
-
     setInitialValue(prevState => ({
       initialValue: {
         ['class_intensity']: option
       }
     }));
-
-  }
+}
 
   return (
     <>
-    {/* {cardToUpdate?} */}
     <StyledForm onSubmit={handleSubmit(onSit)}>
       <StyledInput ref={register({required: true, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_name" placeholder="Name" value={initialValue.class_name}/>
       {errors.class_name && <p>Required</p>}
       {errors.class_name && errors.class_name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
       <StyledInput ref={register({required: false, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_type" placeholder="Class Type" value={initialValue.class_type}/>
-      {/* {errors.class_type && <p>Required</p>}
-      {errors.class_type && errors.class_type.type === "maxLength" && <p>Must be less than 20 characters.</p>} */}
 
       <StyledInput ref={register({required: true, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_date" placeholder="Date" value={initialValue.class_date}/>
       {errors.class_date && <p>Required</p>}
@@ -103,8 +96,6 @@ const AddClass = props => {
       {errors.class_start_time && errors.class_start_time.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
       <StyledInput ref={register({required: false, maxLength: 10})} onChange={e => {setData(e)}} type="text" name="class_duration" placeholder="Duration" value={initialValue.class_duration}/>
-      {/* {errors.class_duration && <p>Required</p>}
-      {errors.class_duration && errors.class_duration.type === "maxLength" && <p>Must be less than 20 characters.</p>} */}
       
       <StyledInput ref={register({required: true, maxLength: 10})} onChange={e => {setData(e)}} type="text" name="class_location" placeholder="Location" value={initialValue.class_location}/>
       {errors.class_location && <p>Required</p>}
@@ -116,18 +107,14 @@ const AddClass = props => {
         <option value="Medium" onClick={() => {setOption('Medium')}}>Medium</option>
         <option value="Low" onClick={() => {setOption('Low')}}>Low</option>
       </StyledSelect>
-      {/* {errors.class_intensity && <p>Required</p>} */}
 
       <StyledInput ref={register({required: false})} onChange={e => {setData(e)}} type="text" name="registered_participants" placeholder="Registered" value={initialValue.registered_participants} />
-      {/* {errors.registered_participants && <p>Required</p>} */}
 
 
       <StyledInput ref={register({required: false})} onChange={e => {setData(e)}} type="text" name="class_max_participants" placeholder="Max Participants" value={initialValue.class_max_participants}/>
-{/* {errors.class_max_participants && <p>Required</p>} */}
 
       <button type="submit">{button}</button>
     </StyledForm>
-    {/* <button onClick={updateCard}>Edit</button> */}
     </>
   )
 }

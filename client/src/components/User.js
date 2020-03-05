@@ -18,7 +18,7 @@ const User = ()=> {
   }
 
   return (
-    <Container>
+    <Container style={{border: '1px solid black'}}>
       <H1>Available Classes</H1>
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearchCategory={setSearchCategory} searchCategory={searchCategory}/>
       <Row>

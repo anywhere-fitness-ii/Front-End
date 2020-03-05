@@ -2,8 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 
-export const Container = styled.div`
+export const LoginWrapper = styled.div`
   padding: 2%;
+`
+export const DashboardWrapper = styled.div`
+  display: flex;
+`
+export const UserInfoWrapper = styled.div`
+  padding: 5% 2%;
 `
 
 export const StyledForm = styled.form`
@@ -30,6 +36,12 @@ export const StyledSelect = styled.select`
   padding: 2%;
   border: 2px solid #C4C4C4;
 `
+
+export const StyledLabel = styled.label`
+  font-size: 1.5rem;
+`
+
+
 
 export const StyledButton = styled.button`
   padding: 2%;
@@ -67,4 +79,10 @@ export const LoginNavContainer = styled.div`
 
 export const H1 = styled.h1`
   color: #C4C4C4;
+`
+
+export const ProfileImg = styled.img`
+  border-radius: 50%;
+  margin: 2% auto;
+  width: 50%;
 `

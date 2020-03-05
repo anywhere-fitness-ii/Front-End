@@ -1,25 +1,26 @@
 import React, {useContext, useState} from 'react';
+import { ProfileImg, UserInfoWrapper } from '../styles/Styles';
 import {DashboardContext} from '../components/Dashboard';
 import EditModal from './EditModal';
 
 
+
 const UserInfo = () => {
-    const {userData} = useContext(DashboardContext)
+    const { userData } = useContext(DashboardContext)
 
     return (
-      <div>
+      <UserInfoWrapper>
         <div>
-          <img src={userData.picture_url}/>
           <h1>{userData.name}</h1>
-        </div>
-        <div>
+          <ProfileImg src={userData.picture_url}/>
+      
           <h2>Personal Info</h2>
-          {<span>Age: {userData.age}</span>}<br/>
-          {<span>Height: {userData.height}</span>}<br/>
-          {<span>Weight: {userData.weight}</span>}<br/>
+          {<p>Age: {userData.age}</p>}
+          {<p>Height: {userData.height}</p>}
+          {<p>Weight: {userData.weight}</p>}
         </div>
         <EditModal buttonLabel={'Edit User Info'} className={'placeholder'}/>
-      </div>
+      </UserInfoWrapper>
     )
 }
 

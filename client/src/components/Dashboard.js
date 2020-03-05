@@ -1,15 +1,8 @@
-
-
 import React, {useState, useContext, useEffect, createContext} from 'react';
 import User from './User'
-import Instructor from './Instructor'
-
-import { H1 } from '../styles/Styles';
-import { Row, Container, Col } from 'reactstrap';
-import ClassCards from './ClassCards';
-import SearchForm from './SearchForm';
+import Instructor from './Instructor' 
 import UserInfo from './UserInfo';
-
+import { DashboardWrapper } from '../styles/Styles';
 
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
@@ -28,10 +21,15 @@ const initialData = {
 export const DashboardContext = createContext();  
 const Dashboard = () =>{
   const [classData, setClassData] = useState([])
-  const [userData, setUserData]=useState([])
+  const [userData, setUserData]=useState({})
   const [cardList, setCardList]=useState([])
   const [dependencyState, setDependencyState] = useState(false)
   const [cardToUpdate, setCardToUpdate] = useState(initialData)
+
+  const updateUserData = (data) => {
+    console.log(userData, data)
+    setUserData({...userData, ...data})
+  }
 
   useEffect(() => {
     axiosWithAuth()
@@ -51,14 +49,14 @@ const Dashboard = () =>{
   }, [])
 
   return (
-    <div>
-      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList}}>
+    <DashboardWrapper>
+      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, updateUserData}}>
       <UserInfo />
         {userData.role_id === 2 ? 
         <Instructor/>:<User/>
         }
       </DashboardContext.Provider>
-    </div>
+    </DashboardWrapper>
     )
 }
 

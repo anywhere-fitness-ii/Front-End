@@ -24,7 +24,6 @@ function App() {
           <LoginNav/>
           <LoginForm />
         </Route>
-        <Route path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
       </LoginWrapper>
     </div>

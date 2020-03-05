@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import MainNav from './components/MainNav';
 import './App.css';
 import { LoginWrapper } from './styles/Styles';
+import PrivateRoute from './components/PrivateRoute'
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <LoginForm />
         </Route>
         <Route path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
       </LoginWrapper>
     </div>
   );

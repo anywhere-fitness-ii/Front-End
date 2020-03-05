@@ -22,20 +22,17 @@ const initialData = {
     class_max_participants: 0
 }
 
-const ClassCards = ({classInstance, setCardToUpdate})=> {
-  const {userData, classData} = useContext(DashboardContext)
-  // const [cardToUpdate, setCardToUpdate]=useState(initialData)
+const ClassCards = ({classInstance, setCardToUpdate, setEditing})=> {
+  const {userData} = useContext(DashboardContext)
 
-
-  const updateCard = e=>{
-    e.preventDefault();
-
+  const deleteHandle = (id) =>{
     axiosWithAuth()
-    // .put(`/classes/${cardToUpdate.id}`, cardToUpdate)
-    .then(res=>{
-      console.log(res, 'res')
-    })
+      .delete(`/classes/${id}`)
+      .then(res => {window.location.reload(false);})
+      .catch(err => err);
   }
+
+
 
   return (
       <Card className="mt-3">
@@ -51,8 +48,9 @@ const ClassCards = ({classInstance, setCardToUpdate})=> {
           <CardSubtitle className="mt-1"><strong>Max Participants: </strong>{classInstance.class_max_participants}</CardSubtitle>
           {userData.role_id === 2 && 
           <div>
-              <Button onClick={()=>setCardToUpdate(classInstance)}>Edit</Button>
-              <Button>Delete</Button>
+
+              <Button onClick={()=>{setCardToUpdate(classInstance); setEditing(true);}}>Edit</Button>
+              <Button onClick={()=>deleteHandle(classInstance.id)}>Delete</Button>
               <Button>Complete</Button>
           </div>
            }

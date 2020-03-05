@@ -24,12 +24,15 @@ const Dashboard = () =>{
   const [userData, setUserData]=useState({})
   const [cardList, setCardList]=useState([])
   const [dependencyState, setDependencyState] = useState(false)
+
   const [cardToUpdate, setCardToUpdate] = useState(initialData)
+  const [ editing, setEditing ] = useState(false);
 
   const updateUserData = (data) => {
     console.log(userData, data)
     setUserData({...userData, ...data})
   }
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -49,11 +52,12 @@ const Dashboard = () =>{
   }, [])
 
   return (
+
     <DashboardWrapper>
-      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, updateUserData}}>
+      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, editing, setEditing}}>
       <UserInfo />
         {userData.role_id === 2 ? 
-        <Instructor/>:<User/>
+        <Instructor />:<User/>
         }
       </DashboardContext.Provider>
     </DashboardWrapper>

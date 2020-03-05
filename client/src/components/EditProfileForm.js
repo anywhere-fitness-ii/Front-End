@@ -17,11 +17,11 @@ const EditProfileForm = (props) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput ref={register} type="text" name="age" placeholder="Name" />
+      <StyledInput ref={register} type="text" name="age" placeholder="Age" />
       
-      <StyledInput ref={register} type="text" name="height" placeholder="Name" />
+      <StyledInput ref={register} type="text" name="height" placeholder="Height" />
       
-      <StyledInput ref={register} type="text" name="weight" placeholder="Name" />
+      <StyledInput ref={register} type="text" name="weight" placeholder="Weight" />
 
       <StyledInput type="text" name="picture_url" placeholder="Profile Image URL"/>
 

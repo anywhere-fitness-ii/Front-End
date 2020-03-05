@@ -18,10 +18,6 @@ const User = ()=> {
 
   return (
     <Container>
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c5cbb4ce0c9747f46eebbc592b470a5fbae2e06
       <H1>Available Classes</H1>
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       <Row>

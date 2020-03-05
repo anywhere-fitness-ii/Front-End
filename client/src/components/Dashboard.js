@@ -18,9 +18,6 @@ const Dashboard = () =>{
   const [cardList, setCardList]=useState([])
   const [dependencyState, setDependencyState] = useState(false)
 
-
-
-
   useEffect(() => {
     axiosWithAuth()
       .get(`/classes`)
@@ -28,7 +25,6 @@ const Dashboard = () =>{
         setClassData(res.data)
         setDependencyState(false);
         console.log(dependencyState, 'dependency initial state')
-
       })
   }, [dependencyState])
 

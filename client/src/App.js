@@ -7,6 +7,7 @@ import LoginNav from './components/LoginNav';
 import Dashboard from './components/Dashboard'
 import './App.css';
 import { LoginWrapper } from './styles/Styles';
+import PrivateRoute from './components/PrivateRoute'
 
 
 
@@ -31,7 +32,7 @@ function App() {
       <Route path="/instructor/:id">
         <AddClassForm />
       </Route> */}
-      <Route path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/dashboard" component={Dashboard} />
 
     </LoginWrapper>
   );

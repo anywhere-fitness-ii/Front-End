@@ -30,25 +30,24 @@ const Instructor = ()=>{
     return term.toLowerCase().includes(searchTerm.toLowerCase())
   }
     return(
-    <div>
-      <InstructorEvents userData={userData} events={data} />
-        <h2>This is the Instructor Section</h2>
-        <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList} editing={editing} setEditing={setEditing}/>
+      <Container style={{border: '1px solid black'}}>
+        <div>
+          <InstructorEvents userData={userData} events={data} />
+          <h2>This is the Instructor Section</h2>
+          <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList} editing={editing} setEditing={setEditing}/>
+        </div>
    
-
-
-        <Container>
-      <H1>Available Classes</H1>
-      <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearchCategory={setSearchCategory} searchCategory={searchCategory}/>
-      <Row>
-          {classData.filter((item) => checkSearch(item[searchCategory])).map((item) => 
-          <Col key={item.id} md="4">
-            <ClassCards setCardToUpdate={setCardToUpdate} cardToUpdate={cardToUpdate} classInstance={item} setEditing={setEditing}/>
-          </Col>
-          )}
-      </Row>
-    </Container>
-    </div>)
+        <H1>Available Classes</H1>
+        <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearchCategory={setSearchCategory} searchCategory={searchCategory}/>
+        <Row>
+            {classData.filter((item) => checkSearch(item[searchCategory])).map((item) => 
+            <Col key={item.id} md="4">
+              <ClassCards setCardToUpdate={setCardToUpdate} cardToUpdate={cardToUpdate} classInstance={item} setEditing={setEditing}/>
+            </Col>
+            )}
+        </Row>
+      </Container>
+   )
 }
 
 export default Instructor

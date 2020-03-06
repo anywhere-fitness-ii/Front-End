@@ -15,7 +15,7 @@ const initialData = {
   class_intensity: "",
   class_location: "",
   registered_participants: 0,
-  class_max_participants: 0
+  class_max_participants: false
 }
 
 export const DashboardContext = createContext();  
@@ -48,7 +48,7 @@ const Dashboard = () =>{
   
   const toggleItem = clickedId =>{
     const changes = {
-      complete: true
+      class_max_participants: true
     }
     axiosWithAuth()
     .put(`/classes/${clickedId}`, changes)
@@ -57,7 +57,7 @@ const Dashboard = () =>{
         console.log("RES: ", res.data)
         const newTaskList = classData.map(item=>{
           if (item.id === clickedId) {
-          return { ...item, complete: !item.complete}
+          return { ...item, class_max_participants: !item.class_max_participants}
           }
           return item;
         })

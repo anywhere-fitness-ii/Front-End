@@ -7,6 +7,8 @@ export const LoginWrapper = styled.div`
 `
 export const DashboardWrapper = styled.div`
   display: flex;
+  background: 282626;
+
 `
 export const UserInfoWrapper = styled.div`
   padding: 5% 2%;

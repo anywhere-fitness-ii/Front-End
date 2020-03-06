@@ -1,10 +1,8 @@
-
-
 import React, { useEffect, useState } from 'react';
-import {useParams} from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import {StyledForm, StyledInput, StyledSelect} from '../styles/Styles';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {Button} from 'reactstrap';
 
 
 const AddClass = props => {
@@ -13,6 +11,8 @@ const AddClass = props => {
   const [initialValue, setInitialValue] = useState(props.cardToUpdate);
   const [button, setButton] = useState('Submit');
   const [flag, setFlag] = useState(false);
+
+  
 
   const onSit = (addNewCard) => {
 
@@ -76,7 +76,7 @@ const AddClass = props => {
 
   return (
     <>
-    <StyledForm onSubmit={handleSubmit(onSit)}>
+    <StyledForm  onSubmit={handleSubmit(onSit)} style={{display: "inline"}}>
       <StyledInput ref={register({required: true, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_name" placeholder="Name" value={initialValue.class_name}/>
       {errors.class_name && <p>Required</p>}
       {errors.class_name && errors.class_name.type === "maxLength" && <p>Must be less than 20 characters.</p>}
@@ -97,19 +97,21 @@ const AddClass = props => {
       {errors.class_location && <p>Required</p>}
       {errors.class_location && errors.class_location.type === "maxLength" && <p>Must be less than 20 characters.</p>}
 
-
-      <StyledSelect value={initialValue.class_intensity} ref={register({required: false})} name="class_intensity" onChange={e => {setData(e)}}>
+<div className="select">
+      <StyledSelect className="select" value={initialValue.class_intensity} ref={register({required: false})} name="class_intensity" onChange={e => {setData(e)}} style={{display: "inline-flex",paddingLeft: "30px", padding: "8px", margin: "6px", border: "1px solid #C4C4C4"}} >
+      <option value="" selected style={{background: 'red'}}>Choose option ... </option>
         <option value="High" onClick={() => {setOption('High')}}>High</option>
         <option value="Medium" onClick={() => {setOption('Medium')}}>Medium</option>
         <option value="Low" onClick={() => {setOption('Low')}}>Low</option>
       </StyledSelect>
+      </div>
 
       <StyledInput ref={register({required: false})} onChange={e => {setData(e)}} type="text" name="registered_participants" placeholder="Registered" value={initialValue.registered_participants} />
 
 
       <StyledInput ref={register({required: false})} onChange={e => {setData(e)}} type="text" name="class_max_participants" placeholder="Max Participants" value={initialValue.class_max_participants}/>
 
-      <button type="submit">{button}</button>
+      <Button type="submit">{button}</Button>
     </StyledForm>
     </>
   )

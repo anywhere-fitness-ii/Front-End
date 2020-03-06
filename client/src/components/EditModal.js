@@ -14,7 +14,7 @@ const EditModal = (props) => {
  
   return (
     <div>
-      <Button onClick={toggle}>{buttonLabel}</Button>
+      <Button style={{background: "#6BC6ED", borderRadius: "50%", width: "55px", height: "55px", border: "none", margin: "-50px 0px 0px 20px"}} onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Edit User Profile</ModalHeader>
         <EditProfileForm />

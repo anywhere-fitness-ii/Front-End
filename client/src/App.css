@@ -1,12 +1,11 @@
 
-/* body {
-  background-color: #282626;
-} */
-
-.adminButtonNo{
-  display: none;
+* {
+  box-sizing: border-box;
 }
-
+body {
+  background-color: #282626;
+  color: #C4C4C4;
+}
 .red{
   background-color: red;
 }
@@ -15,6 +14,63 @@
   background-color: yellow;
 }
 
-* {
-  box-sizing: border-box;
+.cardStyle{
+  left: 520px;
+  top: 1225px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #C4C4C4;
+  background: #282626;
+  border: 1px solid #C4C4C4;
 }
+.select {
+  overflow: hidden;
+  position: relative;
+  display: inline;
+}
+
+.select:after {
+  content: "▼";
+  position: relative;
+  left: -30px;
+  top: 0;
+}
+
+.optionDropDownArrow{
+  display: "inline-flex";
+  padding-left: 30px;
+   padding: 8px;
+   margin: 6px;
+   border: 1px solid #C4C4C4
+}
+
+.formposition{
+  display: block;
+}
+
+input.sc-AxgMl {
+  margin: 6px;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.instructorButtons Button {
+  border-radius: 50%;
+  margin: 10px;
+  width: 55px;
+  height: 55px;
+  border: none;
+  color: white;
+}
+
+
+.sc-AxirZ.dwfCwH {
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+

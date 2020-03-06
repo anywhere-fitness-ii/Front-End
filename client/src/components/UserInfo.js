@@ -9,9 +9,17 @@ const UserInfo = () => {
     const { userData } = useContext(DashboardContext)
 
     return (
-      <UserInfoWrapper>
+      <UserInfoWrapper style={{width: "350px"}}>
+
         <div>
+          <div style={{display: "inline-flex", flexDirection: "row-reverse"}}>
+
+          <EditModal buttonLabel={'Edit'} className={'placeholder'}/>
           <h1>{userData.name}</h1>
+          
+</div>
+
+<p>{userData.role_id === 2 ? 'Instructor': ''} </p>
           <ProfileImg src={userData.picture_url}/>
       
           <h2>Personal Info</h2>
@@ -19,7 +27,6 @@ const UserInfo = () => {
           {<p>Height: {userData.height}</p>}
           {<p>Weight: {userData.weight}</p>}
         </div>
-        <EditModal buttonLabel={'Edit User Info'} className={'placeholder'}/>
       </UserInfoWrapper>
     )
 }

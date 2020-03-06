@@ -20,8 +20,8 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> 
 
   return (
       <Card className="mt-3">
-        <CardBody>
-          <CardTitle><strong>Class Name: </strong>{classInstance.class_name}</CardTitle>
+        <CardBody className="cardStyle">
+          <CardSubtitle><strong>Class Name: </strong>{classInstance.class_name}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Class Type: </strong>{classInstance.class_type}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Date: </strong>{classInstance.class_date}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Start Time: </strong>{classInstance.class_start_time}</CardSubtitle>
@@ -31,14 +31,14 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> 
           <CardSubtitle className="mt-1"><strong>Registered Participants: </strong>{classInstance.registered_participants}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Max Participants: </strong>{classInstance.class_max_participants}</CardSubtitle>
           {userData.role_id === 2 ?
-          <div>
+          <div className="instructorButtons">
 
-              <Button onClick={()=>{
+              <Button style={{background: "#6BC6ED"}} onClick={()=>{
                   setCardToUpdate(classInstance); 
                   setEditing(true);}
                 }>Edit</Button>
-              <Button onClick={()=>deleteHandle(classInstance.id)}>Delete</Button>
-              <Button onClick={()=> toggleItem(classInstance.id)}>Complete</Button>
+              <Button onClick={()=>deleteHandle(classInstance.id)} style={{background: "#E97878"}}>✕</Button>
+              <Button onClick={()=> toggleItem(classInstance.id)} className={classInstance.class_max_participants ? 'red': 'yellow'} style={{background: "#79A778", fontSize: "24px"}}>✓</Button>
           </div>
            :
             <Button>Register</Button>

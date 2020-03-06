@@ -3,6 +3,7 @@ import React, {useState, useContext, useEffect, createContext} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import AddClass from './AddClass'
 import InstructorEvents from './InstructorEvents';
+import Activities from './Activities';
 
 import { H1 } from '../styles/Styles';
 import { Row, Container, Col } from 'reactstrap';
@@ -30,13 +31,15 @@ const Instructor = ()=>{
     return term.toLowerCase().includes(searchTerm.toLowerCase())
   }
     return(
-      <Container style={{border: '1px solid black'}}>
+      <Container >
+       <InstructorEvents events={classData} />
+       <Activities events={classData}/>
+
+        <div style={{border: '1px solid #C4C4C4', padding: "40px", borderRadius: "10px", margin: "10px"}}>
         <div>
-          <InstructorEvents userData={userData} events={data} />
           <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList} editing={editing} setEditing={setEditing}/>
         </div>
    
-        <H1>Available Classes</H1>
         <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearchCategory={setSearchCategory} searchCategory={searchCategory}/>
         <Row>
             {classData.filter((item) => checkSearch(item[searchCategory])).map((item) => 
@@ -46,6 +49,7 @@ const Instructor = ()=>{
             </Col>
             )}
         </Row>
+        </div>
       </Container>
    )
 }

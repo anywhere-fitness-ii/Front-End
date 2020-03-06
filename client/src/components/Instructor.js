@@ -22,7 +22,7 @@ const initialData = {
   class_max_participants: 0
 }
 const Instructor = ()=>{
-  const {data,userData, classData, setDependencyState, cardList, cardToUpdate, setCardToUpdate, editing, setEditing } = useContext(DashboardContext)
+  const {toggleItem, data,userData, classData, setDependencyState, cardList, cardToUpdate, setCardToUpdate, editing, setEditing } = useContext(DashboardContext)
   const [ searchTerm, setSearchTerm ] = useState('');
   const [ searchCategory, setSearchCategory ] = useState('class_name')
 
@@ -42,7 +42,8 @@ const Instructor = ()=>{
         <Row>
             {classData.filter((item) => checkSearch(item[searchCategory])).map((item) => 
             <Col key={item.id} md="4">
-              <ClassCards setCardToUpdate={setCardToUpdate} cardToUpdate={cardToUpdate} classInstance={item} setEditing={setEditing}/>
+              <ClassCards toggleItem={toggleItem} setCardToUpdate={setCardToUpdate} cardToUpdate={cardToUpdate} classInstance={item} setEditing={setEditing}/>
+           {console.log(item.complete, 'classinstance')}
             </Col>
             )}
         </Row>

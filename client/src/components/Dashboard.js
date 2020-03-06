@@ -1,3 +1,4 @@
+
 import React, {useState, useContext, useEffect, createContext} from 'react';
 import User from './User'
 import Instructor from './Instructor' 
@@ -27,11 +28,48 @@ const Dashboard = () =>{
 
   const [cardToUpdate, setCardToUpdate] = useState(initialData)
   const [ editing, setEditing ] = useState(false);
+  const [ updating, setUpdating ] = useState(false);
 
   const updateUserData = (data) => {
     console.log(userData, data)
     setUserData({...userData, ...data})
   }
+
+
+
+  // --- MIGHT TAKE THIS OFF ---//
+  const editUser = person => {
+    setUpdating(true);
+    setClassData(person);
+}
+
+
+
+  console.log('classdATA', classData)
+  
+  const toggleItem = clickedId =>{
+    const changes = {
+      complete: true
+    }
+    axiosWithAuth()
+    .put(`/classes/${clickedId}`, changes)
+      .then(res => {
+        console.log('you clicked it')
+        console.log("RES: ", res.data)
+        const newTaskList = classData.map(item=>{
+          if (item.id === clickedId) {
+          return { ...item, complete: !item.complete}
+          }
+          return item;
+        })
+        setClassData(newTaskList) 
+      })
+      .catch(err => console.log(err))
+  }
+
+  // ---------------------------// 
+
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -53,7 +91,7 @@ const Dashboard = () =>{
   return (
 
     <DashboardWrapper>
-      <DashboardContext.Provider value={{classData, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, editing, setEditing, updateUserData}}>
+      <DashboardContext.Provider value={{classData, setClassData, toggleItem, setDependencyState, cardToUpdate, setCardToUpdate, userData, cardList, editing, setEditing, updateUserData}}>
       <UserInfo />
         {userData.role_id === 2 ? 
         <Instructor />:<User/>
@@ -64,3 +102,4 @@ const Dashboard = () =>{
 }
 
 export default Dashboard;
+

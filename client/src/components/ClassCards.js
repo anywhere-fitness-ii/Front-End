@@ -10,19 +10,9 @@ import {
 import { H1 } from '../styles/Styles';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const initialData = {
-    class_name: "",
-    class_type: "",
-    class_date: "",
-    class_start_time: "",
-    class_duration: "",
-    class_intensity: "",
-    class_location: "",
-    registered_participants: 0,
-    class_max_participants: 0
-}
 
-const ClassCards = ({classInstance, setCardToUpdate, setEditing})=> {
+
+const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> {
   const {userData} = useContext(DashboardContext)
 
   const deleteHandle = (id) =>{
@@ -31,7 +21,6 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing})=> {
       .then(res => {window.location.reload(false);})
       .catch(err => err);
   }
-
 
 
   return (
@@ -49,9 +38,12 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing})=> {
           {userData.role_id === 2 ?
           <div>
 
-              <Button onClick={()=>{setCardToUpdate(classInstance); setEditing(true);}}>Edit</Button>
+              <Button onClick={()=>{
+                  setCardToUpdate(classInstance); 
+                  setEditing(true);}
+                }>Edit</Button>
               <Button onClick={()=>deleteHandle(classInstance.id)}>Delete</Button>
-              <Button>Complete</Button>
+              <button onClick={()=> toggleItem(classInstance.id)} className={classInstance.complete ? 'red': 'yellow'}>Complete</button>
           </div>
            :
             <Button>Register</Button>

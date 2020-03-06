@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { ProfileImg, UserInfoWrapper } from '../styles/Styles';
 import {DashboardContext} from '../components/Dashboard';
 import EditModal from './EditModal';

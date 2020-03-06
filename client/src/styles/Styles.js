@@ -12,6 +12,11 @@ export const UserInfoWrapper = styled.div`
   padding: 5% 2%;
 `
 
+export const MainNavContainer = styled(DashboardWrapper)`
+  justify-content: flex-end;
+  padding: 2% 4%;
+`
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -41,8 +46,6 @@ export const StyledLabel = styled.label`
   font-size: 1.5rem;
 `
 
-
-
 export const StyledButton = styled.button`
   padding: 2%;
   width: 50%;
@@ -71,6 +74,18 @@ export const LoginNavLink = styled(NavLink)`
   }
 `
 
+export const MainNavLink = styled(NavLink)`
+  padding: 1% 10%;
+  text-decoration: none;
+  color: #C4C4C4;
+  font-size: 1.5rem;
+  &:hover {
+    font-weight: 800;
+    text-decoration: none;
+    color: #C4C4C4;
+  }
+`
+
 export const LoginNavContainer = styled.div`
   margin: 2% auto;
   width: 100%;
@@ -86,3 +101,4 @@ export const ProfileImg = styled.img`
   margin: 2% auto;
   width: 50%;
 `
+

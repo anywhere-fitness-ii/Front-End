@@ -33,7 +33,6 @@ const Instructor = ()=>{
       <Container style={{border: '1px solid black'}}>
         <div>
           <InstructorEvents userData={userData} events={data} />
-          <h2>This is the Instructor Section</h2>
           <AddClass cardToUpdate={cardToUpdate} setCardToUpdate={setCardToUpdate} setDependencyState={setDependencyState} userData={userData} cardList={cardList} editing={editing} setEditing={setEditing}/>
         </div>
    

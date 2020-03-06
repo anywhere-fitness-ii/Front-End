@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { StyledLabel, StyledInput, StyledForm, StyledButton } from '../styles/Styles'
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React from 'react';
+import { StyledLabel, StyledInput, StyledForm } from '../styles/Styles'
 
 const SearchForm = ({setSearchTerm, setSearchCategory, searchCategory}) => {
 

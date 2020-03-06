@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {StyledForm, StyledInput, StyledSelect, StyledButton, H1} from '../styles/Styles';
+import {StyledForm, StyledInput, StyledButton} from '../styles/Styles';
 import {useHistory} from 'react-router-dom'
 import {DashboardContext} from '../components/Dashboard';
 import { useForm } from "react-hook-form";

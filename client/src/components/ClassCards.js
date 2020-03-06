@@ -1,15 +1,11 @@
-
-
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {DashboardContext} from '../components/Dashboard'
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Container
+    Card, CardBody,
+    CardTitle, CardSubtitle, Button
   } from 'reactstrap';
 
-import { H1 } from '../styles/Styles';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-
 
 
 const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> {
@@ -21,7 +17,6 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> 
       .then(res => {window.location.reload(false);})
       .catch(err => err);
   }
-
 
   return (
       <Card className="mt-3">

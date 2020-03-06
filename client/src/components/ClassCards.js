@@ -38,7 +38,7 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> 
                   setEditing(true);}
                 }>Edit</Button>
               <Button onClick={()=>deleteHandle(classInstance.id)}>Delete</Button>
-              <button onClick={()=> toggleItem(classInstance.id)} className={classInstance.complete ? 'red': 'yellow'}>Complete</button>
+              <Button onClick={()=> toggleItem(classInstance.id)}>Complete</Button>
           </div>
            :
             <Button>Register</Button>

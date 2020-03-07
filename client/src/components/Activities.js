@@ -1,47 +1,54 @@
 import React from 'react';
 
-// const tryingSomethingNEW=()=>{
-//     let unique = [...new Set()]
-// }
-
-
 const Activities = (props) => {
 
-    // const mySet = new Set([props.events]);
 
-    var items = [{num: 4, }, {num:4}, {num:2}]
-    // var uniqueness = Array.from( new Set(items))
-const uniq = [...new Set(items.map(item=>item.num))]
-    console.log('uniqueness', uniq)
-
-// const shamp =[...new Set (props.events.filter(item => {
-//     return (item.class_type === 'yoga') || (item.class_type === 'Martial Arts') || (item.class_type === 'boxing') ;                
+// const shammy = [...new Set (props.events.filter(item=> {
+//     return ((item.class_type).toUpperCase() === ('pass').toUpperCase())|| (item.class_type === 'yoga')
 // }))]
+// const shamp = [...new Set (props.events.map(item=> {
+//     return `why me ${(item.class_type).toUpperCase()}`}))]
+// console.log(shammy, 'shammy', shamp, 'shamp')
 
-const shammy = [...new Set (props.events.filter(item=> {
-    return (item.class_type === 'pass')|| (item.class_type === 'yoga')
-}))]
-const shamp = [...new Set (props.events.map(item=> item.class_type))]
-console.log(shammy, 'shammy', shamp, 'shamp')
+const raj = 'sheldon'.toUpperCase()
+console.log(raj, 'raj')
+const uniques = Object.values(props.events.reduce((a,c)=>{
+    a[c.class_type.toUpperCase()]=c;
+    return a
+}, {}))
+
+const filteredData = uniques.filter(item =>{
+console.log(item.class_type.toUpperCase(), 'capClasstype')
+    // return  (item.class_type.toUpperCase() === ('boxing').toUpperCase()) || (item.class_type.toUpperCase() === ('Martial Arts').toUpperCase()) || (item.class_type.toUpperCase() === ('yoga').toUpperCase())
+    return  (item.class_type === ('boxing')) || (item.class_type === ('Martial Arts')) || (item.class_type === ('Yoga'))
+
+
+})
+console.log(uniques, 'uniques')
+
 return(
   <div>
-<h3>Popular Fitness Classes</h3>
+<h4>Popular Fitness Classes ({filteredData.length})</h4>
               <div style={{display: 'inline-flex'}}>
 
-      {[...new Set (props.events.filter(item => {
-                    return (item.class_type === 'yoga') || (item.class_type === 'Martial Arts') || (item.class_type === 'boxing') ;                
-                }))]
-                .map(item=> ( 
-                    
-                    <div key={item.id} style={{padding: "40px", borderRadius: "10px", margin: "20px", backgroundImage: `url(${item.class_img_url})`, backgroundPosition: 'center',
+                {filteredData
+                    .map(item=> ( 
+                        <div style={{display: "block"}}>
+                    <div key={item.id} style={{padding: "40px", borderRadius: "10px", margin: "20px 20px 0px", backgroundImage: `url(${item.class_img_url})`, backgroundPosition: 'center',
                     backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat'}}>
+                    backgroundRepeat: 'no-repeat', width: "300px",
+                    height:" 190px"}}>
                         <div style={{display: 'inline-flex'}}>
                             <span style={{marginRight: '10px'}}>📅</span>
                         <h2>{item.class_date}</h2>
                         </div>
                         <p>{item.class_type}</p>
                         {console.log(item.class_type, "cretor type")}
+                        </div>
+                        <div style={{display: "inline-flex", width: "100%", padding: '0px 30px 30px'}}>
+                            <div style={{width: '50%'}}><span>◷</span>{item.class_duration}</div>
+                            <div style={{width: '50%', textAlign: "right"}}><span>🔥</span>{item.class_intensity}</div>
+                        </div>
                         </div>
                         )
                         )

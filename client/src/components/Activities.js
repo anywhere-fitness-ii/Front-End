@@ -38,12 +38,7 @@ return(
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat', width: "300px",
                     height:" 190px"}}>
-                        <div style={{display: 'inline-flex'}}>
-                            <span style={{marginRight: '10px'}}>📅</span>
-                        <h2>{item.class_date}</h2>
-                        </div>
-                        <p>{item.class_type}</p>
-                        {console.log(item.class_type, "cretor type")}
+                        <p style={{color: 'white', background:"#ffc10754", width: "fit-content", padding: "10px"}}>{item.class_type}</p>
                         </div>
                         <div style={{display: "inline-flex", width: "100%", padding: '0px 30px 30px'}}>
                             <div style={{width: '50%'}}><span>◷</span>{item.class_duration}</div>

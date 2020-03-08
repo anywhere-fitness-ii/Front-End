@@ -83,9 +83,12 @@ const AddClass = props => {
 
       <StyledInput ref={register({required: false, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_type" placeholder="Class Type" value={initialValue.class_type}/>
 
-      <StyledInput ref={register({required: true, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_date" placeholder="Date" value={initialValue.class_date}/>
+      {/* <StyledInput ref={register({required: true, maxLength: 20})} onChange={e => {setData(e)}} type="text" name="class_date" placeholder="Date" value={initialValue.class_date}/>
       {errors.class_date && <p>Required</p>}
-      {errors.class_date && errors.class_date.type === "maxLength" && <p>Must be less than 20 characters.</p>}
+      {errors.class_date && errors.class_date.type === "maxLength" && <p>Must be less than 20 characters.</p>} */}
+     
+     <StyledInput type="date" ref={register({required: false})} onChange={e => {setData(e)}} name="class_date" value={initialValue.class_date} 
+      />
 
       <StyledInput ref={register({required: true, maxLength: 10})} onChange={e => {setData(e)}} type="text" name="class_start_time" placeholder="Start Time" value={initialValue.class_start_time}/>
       {errors.class_start_time && <p>Required</p>}

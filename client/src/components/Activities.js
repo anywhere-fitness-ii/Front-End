@@ -20,7 +20,7 @@ const uniques = Object.values(props.events.reduce((a,c)=>{
 const filteredData = uniques.filter(item =>{
 console.log(item.class_type.toUpperCase(), 'capClasstype')
     // return  (item.class_type.toUpperCase() === ('boxing').toUpperCase()) || (item.class_type.toUpperCase() === ('Martial Arts').toUpperCase()) || (item.class_type.toUpperCase() === ('yoga').toUpperCase())
-    return  (item.class_type === ('boxing')) || (item.class_type === ('Martial Arts')) || (item.class_type === ('Yoga'))
+    return  (item.class_type === ('boxing')) || (item.class_type === ('Martial Arts')) || (item.class_type == ('Yoga'))
 
 
 })

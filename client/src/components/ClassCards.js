@@ -18,12 +18,17 @@ const ClassCards = ({classInstance, setCardToUpdate, setEditing, toggleItem})=> 
       .catch(err => err);
   }
 
+  let moment = require('moment');
+  moment().format();
+
   return (
       <Card className="mt-3">
         <CardBody className="cardStyle">
           <CardSubtitle><strong>Class Name: </strong>{classInstance.class_name}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Class Type: </strong>{classInstance.class_type}</CardSubtitle>
-          <CardSubtitle className="mt-1"><strong>Date: </strong>{classInstance.class_date}</CardSubtitle>
+          {/* <CardSubtitle className="mt-1"><strong>Date: </strong>{classInstance.class_date}</CardSubtitle> */}
+          <CardSubtitle className="mt-1"><strong>Date: </strong>{moment(classInstance.class_date).format('MM/DD/YYYY')}</CardSubtitle>
+
           <CardSubtitle className="mt-1"><strong>Start Time: </strong>{classInstance.class_start_time}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Duration: </strong>{classInstance.class_duration}</CardSubtitle>
           <CardSubtitle className="mt-1"><strong>Intensity: </strong>{classInstance.class_intensity}</CardSubtitle>
